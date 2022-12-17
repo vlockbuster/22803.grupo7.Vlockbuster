@@ -22,18 +22,8 @@ const App = () => {
       <header className="App-header">
         <NavBar/>
       </header>
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/peliculas' element={<Peliculas/>}/>
-        <Route path='/categorias' element={<Categorias/>}/>
-        <Route path='/series' element={<Series/>}/>
-        <Route path='*' element={<NotFound/>}/>
-      </Routes>
-      </BrowserRouter>
-      {/* <header className="App-header">
-        <NavBar/>
-      </header> */}
-      <CrearUser />
+    
+    <CrearUser />
       <br />
       <Login />
       <br />
@@ -42,6 +32,15 @@ const App = () => {
       <MiLista />
       <br />
       <MasVistas />
+    
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/peliculas' element={<Peliculas/>}/>
+        <Route path='/categorias' element={<Categorias/>}/>
+        <Route path='/series' element={<Series/>}/>
+        <Route path='*' element={<NotFound/>}/>
+      </Routes>
+     </BrowserRouter>    
     </div>
   );
 }
