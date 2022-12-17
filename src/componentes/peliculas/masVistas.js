@@ -7,10 +7,12 @@ import Swal from "sweetalert2";
 function MasVistas() {
   const [pelis, setPelis] = useState([]);
   const [pagina, setPagina] = useState(1);
-  const key = "e4e0f9c7c990f3921d36b5095affbe99";
+  const key = process.env.REACT_APP_KEY_TMDB
 
-  // fetch de api mas vistas
-  const datos = async (pagina) => {
+
+  useEffect(() => {
+      // fetch de api mas vistas
+  const datos = async () => {
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=es-ES&page=${pagina}`
     );
@@ -18,10 +20,8 @@ function MasVistas() {
     setPelis((pelisActuales) => [...pelisActuales, ...data.results]);
     // console.log(data);
   };
-
-  useEffect(() => {
     datos(pagina);
-  }, [pagina]);
+  }, [key, pagina]);
 
   // ver mas
   const verMas = () => {
@@ -30,17 +30,17 @@ function MasVistas() {
 
   const verDetalle = (e) => {
     let selDetalle = e.target.dataset.dato;
-    console.log("detalle:", selDetalle);
+    console.log("detalle:", pelis[selDetalle]);
   };
 
   // agregar a lista en firebase
   const agregarLista = async (e) => {
     let id = e.target.dataset.id;
     let poster_path = e.target.dataset.poster_path;
-    console.log("lista:", id, poster_path);
+    // console.log("lista:", id, poster_path);
     if (auth.currentUser) {
       let uid = auth.currentUser.uid;
-      console.log(uid);
+      // console.log(uid);
       const docRef = doc(db, "usuarios", uid);
       await updateDoc(docRef, {
         lista: arrayUnion({
@@ -64,7 +64,7 @@ function MasVistas() {
               <img
                 className="card-img-top"
                 src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                data-dato={item.id}
+                data-dato={index}
                 onClick={verDetalle}
                 alt={item.original_title}
               />
