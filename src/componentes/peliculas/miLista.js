@@ -20,8 +20,7 @@ function MiLista() {
           try {
             let listaok = docu.data().lista;
             if (listaok) {
-              console.log(docu.data().lista);
-              // let data = docu.data().lista;
+              // console.log(docu.data().lista);
               setLista(listaok);
             }
           } catch (error) {
@@ -43,15 +42,15 @@ function MiLista() {
       );
       nuevaLista = lista.filter((list) => list.id !== id);
       eliminarDeDB();
-      console.log("nueva", nuevaLista);
+      // console.log("nueva", nuevaLista);
     } else {
       // : setLista(lista.shift)
       setLista([]);
       nuevaLista.shift();
       eliminarDeDB();
-      console.log("nueva vacia", nuevaLista);
+      // console.log("nueva vacia", nuevaLista);
     }
-    console.log(lista);
+    // console.log(lista);
   };
 
   // elimina de DB
@@ -60,12 +59,12 @@ function MiLista() {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         const uid = user.uid;
-        console.log(uid);
+        // console.log(uid);
         const docRef = doc(db, "usuarios", uid);
         await updateDoc(docRef, {
           lista: nuevaLista,
         });
-        console.log("actualizado");
+        // console.log("actualizado");
       } else {
         Swal.fire("Por favor loguear para guardar");
       }
@@ -74,7 +73,7 @@ function MiLista() {
 
   useEffect(() => {
     traerLista();
-  }, [setLista]);
+  }, []);
 
   return (
     <div>

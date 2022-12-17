@@ -18,7 +18,7 @@ function MasVistas() {
     );
     const data = await response.json();
     setPelis((pelisActuales) => [...pelisActuales, ...data.results]);
-    console.log(data);
+    // console.log(data);
   };
     datos(pagina);
   }, [key, pagina]);
@@ -37,10 +37,10 @@ function MasVistas() {
   const agregarLista = async (e) => {
     let id = e.target.dataset.id;
     let poster_path = e.target.dataset.poster_path;
-    console.log("lista:", id, poster_path);
+    // console.log("lista:", id, poster_path);
     if (auth.currentUser) {
       let uid = auth.currentUser.uid;
-      console.log(uid);
+      // console.log(uid);
       const docRef = doc(db, "usuarios", uid);
       await updateDoc(docRef, {
         lista: arrayUnion({
