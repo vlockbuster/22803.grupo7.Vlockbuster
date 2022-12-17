@@ -7,19 +7,20 @@ import Swal from "sweetalert2";
 function MasVistas() {
   const [pelis, setPelis] = useState([]);
   const [pagina, setPagina] = useState(1);
-  const key = process.env.REACT_APP_KEY_TMDB
+  const key = "e4e0f9c7c990f3921d36b5095affbe99"
+  // const key = process.env.REACT_APP_KEY_TMDB
 
 
   useEffect(() => {
-      // fetch de api mas vistas
-  const datos = async () => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=es-ES&page=${pagina}`
-    );
-    const data = await response.json();
-    setPelis((pelisActuales) => [...pelisActuales, ...data.results]);
-    // console.log(data);
-  };
+    // fetch de api mas vistas
+    const datos = async () => {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=es-ES&page=${pagina}`
+      );
+      const data = await response.json();
+      setPelis((pelisActuales) => [...pelisActuales, ...data.results]);
+      // console.log(data);
+    };
     datos(pagina);
   }, [key, pagina]);
 
