@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 function MasVistas() {
   const [pelis, setPelis] = useState([]);
   const [pagina, setPagina] = useState(1);
-  const key = "e4e0f9c7c990f3921d36b5095affbe99";
+  const key = process.env.REACT_APP_KEY_TMDB
 
   // fetch de api mas vistas
   const datos = async (pagina) => {
@@ -16,7 +16,7 @@ function MasVistas() {
     );
     const data = await response.json();
     setPelis((pelisActuales) => [...pelisActuales, ...data.results]);
-    // console.log(data);
+    console.log(data);
   };
 
   useEffect(() => {
@@ -30,7 +30,7 @@ function MasVistas() {
 
   const verDetalle = (e) => {
     let selDetalle = e.target.dataset.dato;
-    console.log("detalle:", selDetalle);
+    console.log("detalle:", pelis[selDetalle]);
   };
 
   // agregar a lista en firebase
@@ -64,7 +64,7 @@ function MasVistas() {
               <img
                 className="card-img-top"
                 src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                data-dato={item.id}
+                data-dato={index}
                 onClick={verDetalle}
                 alt={item.original_title}
               />
