@@ -9,8 +9,10 @@ function MasVistas() {
   const [pagina, setPagina] = useState(1);
   const key = process.env.REACT_APP_KEY_TMDB
 
-  // fetch de api mas vistas
-  const datos = async (pagina) => {
+
+  useEffect(() => {
+      // fetch de api mas vistas
+  const datos = async () => {
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=es-ES&page=${pagina}`
     );
@@ -18,10 +20,8 @@ function MasVistas() {
     setPelis((pelisActuales) => [...pelisActuales, ...data.results]);
     console.log(data);
   };
-
-  useEffect(() => {
     datos(pagina);
-  }, [pagina]);
+  }, [key, pagina]);
 
   // ver mas
   const verMas = () => {
