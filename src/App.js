@@ -22,7 +22,10 @@ const App = () => {
       <header className="App-header">
         <NavBar/>
       </header>
-    
+    <br />
+    <br />
+    <br />
+    <br />    
     <CrearUser />
       <br />
       <Login />
