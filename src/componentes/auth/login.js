@@ -63,8 +63,8 @@ function Login() {
   };
 
   return (
-    <div>
-      <p className="m-2 p-1">login</p>
+    <div className="bg-dark">
+      <p className="m-2 p-1 text-light">login</p>
       <form onSubmit={loginEmail}>
         <label htmlFor="email"></label>
         <input className="m-2 p-1"
@@ -84,7 +84,7 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button className="m-2 p-1 btn btn-dark"type="submit">Login</button>
+        <button className="m-2 p-1 btn btn-secondary"type="submit">Login</button>
       </form>
       <br />
       <button className="m-2 p-1 btn btn-warning"type="button" onClick={loginGoogle}>

@@ -16,7 +16,7 @@ import MiLista from "./componentes/peliculas/miLista";
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="App bg-secondary">
 
       <BrowserRouter>
       <header className="App-header">
