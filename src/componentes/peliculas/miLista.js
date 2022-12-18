@@ -89,7 +89,7 @@ function MiLista() {
               //   onClick={verDetalle}
               alt={item.original_title}
             />
-            <button type="button" onClick={eliminarDeLista} data-id={item.id}>
+            <button className="m-2 p-1 btn btn-success btn-badge"type="button" onClick={eliminarDeLista} data-id={item.id}>
               - lista
             </button>
           </div>

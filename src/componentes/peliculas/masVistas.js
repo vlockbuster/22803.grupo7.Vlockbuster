@@ -70,6 +70,7 @@ function MasVistas() {
                 alt={item.original_title}
               />
               <button
+                className="m-2 p-1 btn btn-success btn-badge"
                 type="button"
                 onClick={agregarLista}
                 data-id={item.id}
@@ -81,6 +82,7 @@ function MasVistas() {
         </div>
       </div>
       <button
+        className="m-2 p-1 btn btn-warning btn-badge"
         type="button"
         onClick={verMas}
         disabled={pagina > 15 ? true : false}>

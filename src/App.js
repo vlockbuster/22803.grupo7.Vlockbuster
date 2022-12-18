@@ -22,19 +22,19 @@ const App = () => {
       <header className="App-header">
         <NavBar/>
       </header>
-    <br />
-    <br />
-    <br />
-    <br />    
-    <CrearUser />
-      <br />
-      <Login />
-      <br />
-      <User />
-      <br />
-      <MiLista />
-      <br />
-      <MasVistas />
+        <br />
+        <br />
+        <br />
+        <br />    
+        <CrearUser />
+        <br />
+        <Login />
+        <br />
+        <User />
+        <br />
+        <MiLista />
+        <br />
+        <MasVistas />
     
       <Routes>
         <Route path='/' element={<Home/>}/>
