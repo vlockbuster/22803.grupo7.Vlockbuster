@@ -78,7 +78,7 @@ function MiLista() {
 
   return (
     <div>
-      <h3>Mi lista</h3>
+      <h3>Mi lista (private)`</h3>
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
         {lista.map((item) => (
           <div key={item.id} className="card">
