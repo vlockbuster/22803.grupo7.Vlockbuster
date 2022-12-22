@@ -4,8 +4,7 @@ import {
   sendEmailVerification,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { auth, db } from "../../firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { auth } from "../../firebase";
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
 
 function CrearUser() {

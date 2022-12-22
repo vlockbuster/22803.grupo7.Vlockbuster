@@ -21,18 +21,25 @@ function Login() {
         auth,
         email,
         password
-      );
-      if (!auth.currentUser.emailVerified) {
-        Swal.fire("Por favor validar el email");
-      } else {
-        const docRef = doc(db, "usuarios", auth.currentUser.uid);
-        const data = {
-          uid: auth.currentUser.uid,
-          authProvider: "local",
-          email: auth.currentUser.email,
-        }
-        await setDoc(docRef, data)
-      };
+      )
+        .then(async () => {
+          if (!auth.currentUser.emailVerified) {
+            Swal.fire("Por favor validar el email");
+          } else {
+            try {
+              const docRef = doc(db, "usuarios", auth.currentUser.uid);
+              const data = {
+                uid: auth.currentUser.uid,
+                authProvider: "local",
+                email: auth.currentUser.email
+              }
+              await setDoc(docRef, data)
+            } catch (error) {
+              Swal.fire("Un error a ocurrido");
+              console.log(error)
+            }
+          };
+        });
     } catch (error) {
       console.log(error);
       if (
@@ -51,7 +58,6 @@ function Login() {
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-      // console.log(userCredential);
       const docRef = doc(db, "usuarios", auth.currentUser.uid);
       const data = {
         uid: auth.currentUser.uid,
