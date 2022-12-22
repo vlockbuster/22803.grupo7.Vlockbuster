@@ -25,7 +25,6 @@ function Login() {
         .then(async () => {
           if (!auth.currentUser.emailVerified) {
             Swal.fire("Por favor validar el email");
-          } else {
             try {
               const docRef = doc(db, "usuarios", auth.currentUser.uid);
               const data = {
@@ -38,7 +37,7 @@ function Login() {
               Swal.fire("Un error a ocurrido");
               console.log(error)
             }
-          };
+          }
         });
     } catch (error) {
       console.log(error);
