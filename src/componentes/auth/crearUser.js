@@ -67,11 +67,13 @@ function CrearUser() {
   };
 
   return (
-    <div>
+    <div >
+      <p className="m-2 p-1">
       Registrar Usuario
+      </p>
       <form onSubmit={crearUsuario}>
         <label htmlFor="email"></label>
-        <input
+        <input className="m-2 p-1"
           type="text"
           placeholder="Ingrese email"
           ref={emailRef}
@@ -79,17 +81,17 @@ function CrearUser() {
           required
         />
         <label htmlFor="password"></label>
-        <input
+        <input className="m-2 p-1"
           type="password"
           placeholder="Ingrese password"
           autoComplete="current-password"
           ref={passwordRef}
           required
         />
-        <button type="submit">Registrar Usuario</button>
+        <button  className="m-2 p-1 btn btn-success" type="submit">Registrar Usuario</button>
       </form>
-      <p onClick={reset}>
-        Olvide mi password
+      <p className="m-2 p-1" onClick={reset}>
+        Olvidé mi password
       </p>
     </div>
   );

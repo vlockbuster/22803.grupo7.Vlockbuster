@@ -22,6 +22,20 @@ const App = () => {
       <header className="App-header">
         <NavBar/>
       </header>
+        <br />
+        <br />
+        <br />
+        <br />    
+        <CrearUser />
+        <br />
+        <Login />
+        <br />
+        <User />
+        <br />
+        <MiLista />
+        <br />
+        <MasVistas />
+    
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/peliculas' element={<Peliculas/>}/>
@@ -29,19 +43,7 @@ const App = () => {
         <Route path='/series' element={<Series/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
-      </BrowserRouter>
-      {/* <header className="App-header">
-        <NavBar/>
-      </header> */}
-      <CrearUser />
-      <br />
-      <Login />
-      <br />
-      <User />
-      <br />
-      <MiLista />
-      <br />
-      <MasVistas />
+     </BrowserRouter>    
     </div>
   );
 }

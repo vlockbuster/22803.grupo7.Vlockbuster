@@ -68,10 +68,10 @@ function Login() {
 
   return (
     <div>
-      login
+      <p className="m-2 p-1">login</p>
       <form onSubmit={loginEmail}>
         <label htmlFor="email"></label>
-        <input
+        <input className="m-2 p-1"
           type="text"
           placeholder="Ingrese email"
           autoComplete="username"
@@ -80,7 +80,7 @@ function Login() {
           required
         />
         <label htmlFor="password"></label>
-        <input
+        <input className="m-2 p-1"
           type="password"
           autoComplete="current-password"
           placeholder="Ingrese password"
@@ -88,10 +88,10 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Login</button>
+        <button className="m-2 p-1 btn btn-dark"type="submit">Login</button>
       </form>
       <br />
-      <button type="button" onClick={loginGoogle}>
+      <button className="m-2 p-1 btn btn-warning"type="button" onClick={loginGoogle}>
         Login Google
       </button>
     </div>

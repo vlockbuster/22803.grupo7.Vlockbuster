@@ -32,11 +32,11 @@ function User() {
     <div>
       {authUser ? (
         <>
-          <p>{`logueado ${authUser.email}`}</p>
-          <button onClick={desloguear}>Log Out</button>
+          <p className="m-2 p-1">{`logueado ${authUser.email}`}</p>
+          <button className="btn btn-secondary btn-badge m-2 p-1" onClick={desloguear}>Log Out</button>
         </>
       ) : (
-        <p>Deslogueado</p>
+        <p className="m-2 p-1">Deslogueado</p>
       )}
     </div>
   );
