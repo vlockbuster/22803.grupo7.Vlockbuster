@@ -22,10 +22,11 @@ function CrearUser() {
         auth,
         email,
         password
-      );
-      const docRef = doc(db, "usuarios", auth.currentUser.uid);
-      const data = { uid: auth.currentUser.uid, authProvider: "local", email};
-      await setDoc(docRef, data).then(() => {
+      )
+      // const docRef = doc(db, "usuarios", auth.currentUser.uid);
+      // const data = { uid: auth.currentUser.uid, authProvider: "local", email};
+      // await setDoc(docRef, data)
+      .then(() => {
         sendEmailVerification(auth.currentUser);
         Swal.fire(
           `En breve recibiras un email a ${email} para validar tu cuenta`
@@ -49,7 +50,6 @@ function CrearUser() {
       input: "email",
       inputPlaceholder: "email",
     });
-
     if (email) {
       sendPasswordResetEmail(auth, email)
         .then(() => {
