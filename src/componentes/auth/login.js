@@ -24,7 +24,7 @@ function Login() {
       )
         .then(async () => {
           if (!auth.currentUser.emailVerified) {
-            Swal.fire("Por favor validar el email");
+            Swal.fire("Por favor validar el email")
             try {
               const docRef = doc(db, "usuarios", auth.currentUser.uid);
               const data = {
