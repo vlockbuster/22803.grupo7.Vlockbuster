@@ -76,11 +76,11 @@ function MiLista() {
   }, []);
 
   return (
-    <div>
-      <h3>Mi lista</h3>
+    <div className=" bg-dark">
+      <h3 className="text-light text-center">Mi lista</h3>
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
         {lista.map((item) => (
-          <div key={item.id} className="card">
+          <div key={item.id} className="card bg-secondary my-2">
             <p>{item.email}</p>
             <img
               className="card-img-top"
@@ -89,7 +89,7 @@ function MiLista() {
               //   onClick={verDetalle}
               alt={item.original_title}
             />
-            <button type="button" onClick={eliminarDeLista} data-id={item.id}>
+            <button className="m-2 p-1 btn btn-success btn-badge"type="button" onClick={eliminarDeLista} data-id={item.id}>
               - lista
             </button>
           </div>

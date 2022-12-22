@@ -56,20 +56,21 @@ function MasVistas() {
 
   return (
     <>
-      <div>
+      <div className="bg-dark p-1">
         <br />
-        <h3>Mas Populares</h3>
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+        <h3 className="text-center text-light">Mas Populares</h3>
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 p-1">
           {pelis.map((item, index) => (
-            <div key={index} className="card">
+            <div key={index} className="card bg-secondary p-1">
               <img
-                className="card-img-top"
+                className="card-img-top p-1"
                 src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                 data-dato={index}
                 onClick={verDetalle}
                 alt={item.original_title}
               />
               <button
+                className="m-2 p-1 btn btn-success btn-badge"
                 type="button"
                 onClick={agregarLista}
                 data-id={item.id}
@@ -81,6 +82,7 @@ function MasVistas() {
         </div>
       </div>
       <button
+        className="m-2 p-1 btn btn-warning btn-badge"
         type="button"
         onClick={verMas}
         disabled={pagina > 15 ? true : false}>
