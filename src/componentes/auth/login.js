@@ -3,6 +3,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  signOut
 } from "firebase/auth";
 import { doc, setDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase";
@@ -16,6 +17,7 @@ function Login() {
   // login con usuario en firebase
   const loginEmail = async (e) => {
     e.preventDefault();
+    desloguear()
     try {
       await signInWithEmailAndPassword(
         auth,
@@ -54,6 +56,7 @@ function Login() {
 
   // login con google firebase
   const loginGoogle = async () => {
+    desloguear()
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
@@ -72,6 +75,15 @@ function Login() {
       }
     } catch (error) {
       alert(error);
+    }
+  };
+  // logout
+  const desloguear = async () => {
+    try {
+      await signOut(auth);
+      console.log("deslogueado ok");
+    } catch (error) {
+      alert(error.message);
     }
   };
 
