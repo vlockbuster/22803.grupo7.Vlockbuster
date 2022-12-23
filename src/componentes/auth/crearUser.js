@@ -67,8 +67,8 @@ function CrearUser() {
   };
 
   return (
-    <div >
-      <p className="m-2 p-1">
+    <div className="bg-dark">
+      <p className="m-2 p-1 text-light">
       Registrar Usuario
       </p>
       <form onSubmit={crearUsuario}>
@@ -90,7 +90,7 @@ function CrearUser() {
         />
         <button  className="m-2 p-1 btn btn-success" type="submit">Registrar Usuario</button>
       </form>
-      <p className="m-2 p-1" onClick={reset}>
+      <p className="m-2 p-1 text-light" onClick={reset}>
         Olvidé mi password
       </p>
     </div>
