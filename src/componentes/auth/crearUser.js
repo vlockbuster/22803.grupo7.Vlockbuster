@@ -4,8 +4,7 @@ import {
   sendEmailVerification,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { auth, db } from "../../firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { auth } from "../../firebase";
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
 
 function CrearUser() {
@@ -22,10 +21,7 @@ function CrearUser() {
         auth,
         email,
         password
-      );
-      const docRef = doc(db, "usuarios", auth.currentUser.uid);
-      const data = { uid: auth.currentUser.uid, authProvider: "local", email};
-      await setDoc(docRef, data).then(() => {
+      ).then(() => {
         sendEmailVerification(auth.currentUser);
         Swal.fire(
           `En breve recibiras un email a ${email} para validar tu cuenta`
@@ -71,11 +67,13 @@ function CrearUser() {
   };
 
   return (
-    <div>
+    <div >
+      <p className="m-2 p-1">
       Registrar Usuario
+      </p>
       <form onSubmit={crearUsuario}>
         <label htmlFor="email"></label>
-        <input
+        <input className="m-2 p-1"
           type="text"
           placeholder="Ingrese email"
           ref={emailRef}
@@ -83,17 +81,17 @@ function CrearUser() {
           required
         />
         <label htmlFor="password"></label>
-        <input
+        <input className="m-2 p-1"
           type="password"
           placeholder="Ingrese password"
           autoComplete="current-password"
           ref={passwordRef}
           required
         />
-        <button type="submit">Registrar Usuario</button>
+        <button  className="m-2 p-1 btn btn-success" type="submit">Registrar Usuario</button>
       </form>
-      <p onClick={reset}>
-        Olvide mi password
+      <p className="m-2 p-1" onClick={reset}>
+        Olvidé mi password
       </p>
     </div>
   );

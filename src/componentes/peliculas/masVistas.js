@@ -7,21 +7,22 @@ import Swal from "sweetalert2";
 function MasVistas() {
   const [pelis, setPelis] = useState([]);
   const [pagina, setPagina] = useState(1);
-  const key = "e4e0f9c7c990f3921d36b5095affbe99";
+  const key = "e4e0f9c7c990f3921d36b5095affbe99"
+  // const key = process.env.REACT_APP_KEY_TMDB
 
-  // fetch de api mas vistas
-  const datos = async (pagina) => {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=es-ES&page=${pagina}`
-    );
-    const data = await response.json();
-    setPelis((pelisActuales) => [...pelisActuales, ...data.results]);
-    // console.log(data);
-  };
 
   useEffect(() => {
+    // fetch de api mas vistas
+    const datos = async () => {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=es-ES&page=${pagina}`
+      );
+      const data = await response.json();
+      setPelis((pelisActuales) => [...pelisActuales, ...data.results]);
+      // console.log(data);
+    };
     datos(pagina);
-  }, [pagina]);
+  }, [key, pagina]);
 
   // ver mas
   const verMas = () => {
@@ -30,17 +31,17 @@ function MasVistas() {
 
   const verDetalle = (e) => {
     let selDetalle = e.target.dataset.dato;
-    console.log("detalle:", selDetalle);
+    console.log("detalle:", pelis[selDetalle]);
   };
 
   // agregar a lista en firebase
   const agregarLista = async (e) => {
     let id = e.target.dataset.id;
     let poster_path = e.target.dataset.poster_path;
-    console.log("lista:", id, poster_path);
+    // console.log("lista:", id, poster_path);
     if (auth.currentUser) {
       let uid = auth.currentUser.uid;
-      console.log(uid);
+      // console.log(uid);
       const docRef = doc(db, "usuarios", uid);
       await updateDoc(docRef, {
         lista: arrayUnion({
@@ -55,20 +56,21 @@ function MasVistas() {
 
   return (
     <>
-      <div>
+      <div className="bg-dark p-1">
         <br />
-        <h3>Mas Populares (public)</h3>
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+        <h3 className="text-center text-light">Mas Populares</h3>
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 p-1">
           {pelis.map((item, index) => (
-            <div key={index} className="card">
+            <div key={index} className="card bg-secondary p-1">
               <img
-                className="card-img-top"
+                className="card-img-top p-1"
                 src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                data-dato={item.id}
+                data-dato={index}
                 onClick={verDetalle}
                 alt={item.original_title}
               />
               <button
+                className="m-2 p-1 btn btn-success btn-badge"
                 type="button"
                 onClick={agregarLista}
                 data-id={item.id}
@@ -80,6 +82,7 @@ function MasVistas() {
         </div>
       </div>
       <button
+        className="m-2 p-1 btn btn-warning btn-badge"
         type="button"
         onClick={verMas}
         disabled={pagina > 15 ? true : false}>

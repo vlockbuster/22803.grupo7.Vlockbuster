@@ -25,6 +25,10 @@ function Login() {
       if (!auth.currentUser.emailVerified) {
         Swal.fire("Por favor validar el email");
       }
+      const docRef = doc(db, "usuarios", auth.currentUser.uid);
+      const data = { uid: auth.currentUser.uid, authProvider: "local", email:auth.currentUser.email};
+      await setDoc(docRef, data)
+      // acar iria la escritura en la base
     } catch (error) {
       console.log(error);
       if (
@@ -64,10 +68,10 @@ function Login() {
 
   return (
     <div>
-      login
+      <p className="m-2 p-1">login</p>
       <form onSubmit={loginEmail}>
         <label htmlFor="email"></label>
-        <input
+        <input className="m-2 p-1"
           type="text"
           placeholder="Ingrese email"
           autoComplete="username"
@@ -76,7 +80,7 @@ function Login() {
           required
         />
         <label htmlFor="password"></label>
-        <input
+        <input className="m-2 p-1"
           type="password"
           autoComplete="current-password"
           placeholder="Ingrese password"
@@ -84,10 +88,10 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Login</button>
+        <button className="m-2 p-1 btn btn-dark"type="submit">Login</button>
       </form>
       <br />
-      <button type="button" onClick={loginGoogle}>
+      <button className="m-2 p-1 btn btn-warning"type="button" onClick={loginGoogle}>
         Login Google
       </button>
     </div>
