@@ -20,6 +20,9 @@ const App = () => {
   return (
     <div className="App">
       <UserProvider>
+        {/* Todo componente que se encuentre dentro de  UserProvider puede usar 
+        la variable authUser en Home hay un ejemplo de como usarla 
+        */}
       <BrowserRouter>
       <header className="App-header">
         <NavBar/>
@@ -35,6 +38,7 @@ const App = () => {
       <Profile />      
       <Routes>
         <Route path='/' element={ <RequireAuth> 
+          {/* aca van los componentes que necesitan que el usuario este login  para eso se usa el componente <RequireAuth>*/}
           <Home/>  
         </RequireAuth>}/> 
         <Route path='/peliculas' element={<Peliculas/>}/>
