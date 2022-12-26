@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import Swal from "sweetalert2";
 import { useConsulta } from "../hooks/useConsulta";
+import { useDebounce } from "../hooks/useDebounce";
 
 function Home() {
   const [pelis, setPelis] = useState([]);
@@ -12,9 +12,7 @@ function Home() {
   // const key = process.env.REACT_APP_KEY_TMDB
   //agregado de useLocation para el search
   const query = useConsulta();
-  const search = query.get("search");
-  console.log(search);
-  const location = useLocation();
+  const search = useDebounce(query.get("search"), 500);
 
   useEffect(() => {
     //parametro de busqueda

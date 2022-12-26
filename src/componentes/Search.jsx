@@ -5,20 +5,20 @@ import { useNavigate } from "react-router-dom";
 import { useConsulta } from "../hooks/useConsulta";
 
 export const Search = () => {
-  const [searchText, setSearchText] = useState("");
   const query = useConsulta();
   const search = query.get("search");
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setSearchText(search || "");
-  }, [search]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/?search=" + searchText, { replace: true });
   };
+
+  const handleInput = (e) => {
+    const value = e.target.value;
+    navigate("/?search=" + value, { replace: true });
+  };
+
   return (
     <form
       className={styles.busquedaContenedor}
@@ -29,8 +29,8 @@ export const Search = () => {
         <input
           className={`text-light  ${styles.inputBusqueda}`}
           type="text"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
+          value={search}
+          onChange={handleInput}
           placeholder="Buscar"
           aria-label="Search"
         />

@@ -32,7 +32,7 @@ const App = () => {
         <br />
         <MiLista />
         <br />
-        {/* <MasVistas /> */}
+        <MasVistas />
 
         <Routes>
           <Route path="/" element={<Home />} />
