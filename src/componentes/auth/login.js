@@ -25,6 +25,10 @@ function Login() {
       if (!auth.currentUser.emailVerified) {
         Swal.fire("Por favor validar el email");
       }
+      const docRef = doc(db, "usuarios", auth.currentUser.uid);
+      const data = { uid: auth.currentUser.uid, authProvider: "local", email:auth.currentUser.email};
+      await setDoc(docRef, data)
+      // acar iria la escritura en la base
     } catch (error) {
       console.log(error);
       if (

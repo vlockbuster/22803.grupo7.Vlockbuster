@@ -4,8 +4,7 @@ import {
   sendEmailVerification,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { auth, db } from "../../firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { auth } from "../../firebase";
 import Swal from "sweetalert2/dist/sweetalert2.all.js";
 
 function CrearUser() {
@@ -22,10 +21,7 @@ function CrearUser() {
         auth,
         email,
         password
-      );
-      const docRef = doc(db, "usuarios", auth.currentUser.uid);
-      const data = { uid: auth.currentUser.uid, authProvider: "local", email};
-      await setDoc(docRef, data).then(() => {
+      ).then(() => {
         sendEmailVerification(auth.currentUser);
         Swal.fire(
           `En breve recibiras un email a ${email} para validar tu cuenta`
