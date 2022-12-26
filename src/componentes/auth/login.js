@@ -82,6 +82,7 @@ function Login() {
     try {
       await signOut(auth);
       console.log("deslogueado ok");
+      // redireccionar a home
     } catch (error) {
       alert(error.message);
     }

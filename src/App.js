@@ -11,7 +11,8 @@ import Login from "./componentes/auth/login";
 import CrearUser from "./componentes/auth/crearUser";
 import User from "./componentes/auth/user";
 import MasVistas from "./componentes/peliculas/masVistas";
-import MiLista from "./componentes/peliculas/miLista";
+import MiLista from "./component/peliculas/miLista";
+import ListaContextProvider from "./component/peliculas/contextLista";
 
 
 const App = () => {
@@ -39,7 +40,9 @@ const App = () => {
       <br />
       <User />
       <br />
-      <MiLista />
+      <ListaContextProvider>
+        <MiLista />
+      </ListaContextProvider>
       <br />
       <MasVistas />
     </div>
