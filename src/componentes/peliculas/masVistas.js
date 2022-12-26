@@ -3,13 +3,11 @@ import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { auth, db } from "../../firebase";
 import Swal from "sweetalert2";
 
-
 function MasVistas() {
   const [pelis, setPelis] = useState([]);
   const [pagina, setPagina] = useState(1);
-  const key = "e4e0f9c7c990f3921d36b5095affbe99"
+  const key = "e4e0f9c7c990f3921d36b5095affbe99";
   // const key = process.env.REACT_APP_KEY_TMDB
-
 
   useEffect(() => {
     // fetch de api mas vistas
