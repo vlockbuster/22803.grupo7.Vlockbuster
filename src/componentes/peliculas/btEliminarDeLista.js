@@ -7,7 +7,7 @@ import { useContext } from "react";
 
 // para que funcione siempre tiene que recibir el id a eliminar
 
-function btEliminarDeLista(data) {
+function BtEliminarDeLista(data) {
   const [lista, setLista] = useContext(ListaContext);
   let nuevaLista = [];
 
@@ -56,4 +56,4 @@ function btEliminarDeLista(data) {
   );
 }
 
-export default btEliminarDeLista;
+export default BtEliminarDeLista;
