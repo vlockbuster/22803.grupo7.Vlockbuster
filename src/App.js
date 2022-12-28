@@ -3,7 +3,6 @@ import './App.css';
 import NavBar from './componentes/navbar';
 import Home from './pages/home';
 import Peliculas from './pages/peliculas';
-import Categorias from './pages/categorias';
 import Series from './pages/series';
 import NotFound from './pages/notFound';
 import {BrowserRouter, Route ,Routes} from 'react-router-dom';
@@ -13,10 +12,9 @@ import User from "./componentes/auth/user";
 import MasVistas from "./componentes/peliculas/masVistas";
 import MiLista from "./componentes/peliculas/miLista";
 import ListaContextProvider from "./componentes/peliculas/contextLista";
-import Profile from './pages/Profile';
 import UserProvider from './context/UserProvider';
 import RequireAuth from './componentes/RequireAuth';
-import Profiles from "./pages/Profile"
+import MiListaPage from './pages/miLista';
 
 const App = () => {
   return (
@@ -37,16 +35,15 @@ const App = () => {
       <User />
       <br />
       <CrearUser />
-      {/* en profile esta el ejemplo para usar el carrusel solo se importa y se le manda 
+      {/* en home esta el ejemplo para usar el carrusel solo se importa y se le manda 
       la peticion de la api con la variable lista */}
-      <Profile />      
       <Routes>
-        <Route path='/' element={ <RequireAuth> 
+        <Route path='/MiLista' element={ <RequireAuth> 
           {/* aca van los componentes que necesitan que el usuario este login  para eso se usa el componente <RequireAuth>*/}
-          <Home/>  
+          <MiListaPage/>  
         </RequireAuth>}/> 
+        <Route path='/' element={<Home/>}/>
         <Route path='/peliculas' element={<Peliculas/>}/>
-        <Route path='/categorias' element={<Categorias/>}/>
         <Route path='/series' element={<Series/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
