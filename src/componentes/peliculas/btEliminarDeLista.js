@@ -2,7 +2,7 @@ import React from "react";
 import { doc, updateDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { db } from "../../firebase";
-import {ListaContext} from './ContextLista'
+import {ListaContext} from './contextLista'
 import { useContext } from "react";
 import Swal from "sweetalert2";
 
@@ -48,12 +48,7 @@ function BtEliminarDeLista(data) {
     });
   };
 
-  */
-
-  const eliminarDeLista = () => {
-    Swal.fire("Pendiente");
-  };
-
+  
   return (
     <>
       <button type="button" onClick={eliminarDeLista}>
