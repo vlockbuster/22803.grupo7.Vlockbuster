@@ -15,6 +15,7 @@ import MiLista from "./componentes/peliculas/miLista";
 import Profile from './pages/Profile';
 import UserProvider from './context/UserProvider';
 import RequireAuth from './componentes/RequireAuth';
+import Profiles from "./pages/Profile"
 
 const App = () => {
   return (
