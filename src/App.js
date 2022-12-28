@@ -15,6 +15,7 @@ import ListaContextProvider from "./componentes/peliculas/contextLista";
 import UserProvider from './context/UserProvider';
 import RequireAuth from './componentes/RequireAuth';
 import MiListaPage from './pages/miLista';
+import LoginPages from './pages/LoginPage'
 
 const App = () => {
   return (
@@ -38,13 +39,20 @@ const App = () => {
       {/* en home esta el ejemplo para usar el carrusel solo se importa y se le manda 
       la peticion de la api con la variable lista */}
       <Routes>
-        <Route path='/MiLista' element={ <RequireAuth> 
+        <Route element={ <RequireAuth/>}> 
           {/* aca van los componentes que necesitan que el usuario este login  para eso se usa el componente <RequireAuth>*/}
-          <MiListaPage/>  
-        </RequireAuth>}/> 
+          {/* tambiensirve para proteger solo 1 componente 
+          <RequireAuth/>
+          <componente a proteger/>
+          <RequireAuth/>
+          */}
+          <Route path='/MiLista' element={<MiListaPage/>}/>
+        </Route> 
         <Route path='/' element={<Home/>}/>
         <Route path='/peliculas' element={<Peliculas/>}/>
         <Route path='/series' element={<Series/>}/>
+        <Route path='/Login' element={<LoginPages/>}/>
+        
         <Route path='*' element={<NotFound/>}/>
       </Routes>
       <br />

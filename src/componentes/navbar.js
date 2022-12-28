@@ -6,7 +6,7 @@ const NavBar = () => {
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
             <NavLink to={'/'} className="navbar-brand" >
-                <img src="popcorn.png" width={40}></img>
+                <img src="./popcorn.png" width={40} alt="logo" />
             </NavLink>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span className="navbar-toggler-icon"></span>
@@ -20,11 +20,9 @@ const NavBar = () => {
                     <NavLink to={'/Series'} className="nav-link" >Series</NavLink>
                     </li>
                     <li className="nav-item">
-                    <NavLink to={'/Categorias'} className="nav-link">Categorias</NavLink>
+                    <NavLink to={'/MiLista'} className="nav-link">MiLista</NavLink>
                     </li>
-                    <li className="nav-item">
-                    <NavLink to={'/Contacto'} className="nav-link">Contacto</NavLink>
-                    </li>
+                    
                     <li className="nav-item">
                         <NavLink to={'/Login'} className="nav-link">Login</NavLink>
                     </li>
