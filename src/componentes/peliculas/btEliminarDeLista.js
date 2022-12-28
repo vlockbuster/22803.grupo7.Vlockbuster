@@ -23,6 +23,7 @@ function BtEliminarDeLista(data) {
       console.log("lista", lista);
     } else {
       setLista([]);
+      // eslint-disable-next-line no-unused-expressions
       nuevaLista.shift;
       eliminarDeDB();
       console.log("nueva vacia", nuevaLista);
@@ -40,8 +41,12 @@ function BtEliminarDeLista(data) {
         const docRef = doc(db, "usuarios", uid);
         await updateDoc(docRef, {
           lista: nuevaLista,
-        });
-        console.log("actualizado");
+        }).then(Swal.fire({
+          icon: 'success',
+          title: 'Eliminada de la lista',
+          showConfirmButton: false,
+          timer: 1500
+        }));
       } else {
         Swal.fire("Por favor loguear para guardar");
       }
