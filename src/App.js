@@ -12,7 +12,7 @@ import CrearUser from "./componentes/auth/crearUser";
 import User from "./componentes/auth/user";
 import MasVistas from "./componentes/peliculas/masVistas";
 import MiLista from "./componentes/peliculas/miLista";
-import ListaContextProvider from "./componentes/peliculas/contextLista";
+import ListaContextProvider from "./componentes/peliculas/ContextLista";
 import Profile from './pages/Profile';
 import UserProvider from './context/UserProvider';
 import RequireAuth from './componentes/RequireAuth';
@@ -51,13 +51,13 @@ const App = () => {
         <Route path='*' element={<NotFound/>}/>
       </Routes>
       <br />
-      <Peliculas/>
       <br />
       <ListaContextProvider>
         <MiLista />
+        <MasVistas />
       </ListaContextProvider>
       <br />
-      <MasVistas />
+      
       </div>
      </BrowserRouter>    
      </UserProvider>

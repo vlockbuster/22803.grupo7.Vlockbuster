@@ -4,7 +4,7 @@ import { db } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import BtEliminar from "./btEliminarDeLista";
-import { ListaContext } from "./contextLista";
+import { ListaContext } from "./ContextLista";
 
 function MiLista() {
   const [lista, setLista] = useContext(ListaContext)
