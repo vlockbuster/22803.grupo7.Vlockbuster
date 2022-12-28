@@ -3,7 +3,7 @@ import { useEffect, useContext } from "react";
 import { db } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import BtEliminar from "./BtEliminarDeLista";
+import BtEliminar from "./btEliminarDeLista";
 import { ListaContext } from "./contextLista";
 
 function MiLista() {
