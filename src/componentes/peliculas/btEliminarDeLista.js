@@ -4,10 +4,10 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { db } from "../../firebase";
 import {ListaContext} from './contextLista'
 import { useContext } from "react";
-
+import Swal from "sweetalert2";
 // para que funcione siempre tiene que recibir el id a eliminar
 
-function btEliminarDeLista(data) {
+function BtEliminarDeLista(data) {
   const [lista, setLista] = useContext(ListaContext);
   let nuevaLista = [];
 
@@ -22,6 +22,7 @@ function btEliminarDeLista(data) {
       console.log("lista", lista);
     } else {
       setLista([]);
+      // eslint-disable-next-line no-unused-expressions
       nuevaLista.shift;
       eliminarDeDB();
       console.log("nueva vacia", nuevaLista);
@@ -56,4 +57,4 @@ function btEliminarDeLista(data) {
   );
 }
 
-export default btEliminarDeLista;
+export default BtEliminarDeLista;

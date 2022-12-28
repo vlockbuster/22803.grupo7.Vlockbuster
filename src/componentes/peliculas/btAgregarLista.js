@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 // para que funciones siempre tiene que recibir los parametros id y poster_path
 
-function btAgregarLista(data) {
+function BtAgregarLista(data) {
   // agregar a lista en firebase
   const agregarLista = async () => {
     let id = data.id;
@@ -35,4 +35,4 @@ function btAgregarLista(data) {
   );
 }
 
-export default btAgregarLista;
+export default BtAgregarLista;
