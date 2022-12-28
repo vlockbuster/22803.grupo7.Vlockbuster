@@ -15,6 +15,7 @@ import MiLista from "./componentes/peliculas/miLista";
 import Profile from './pages/Profile';
 import UserProvider from './context/UserProvider';
 import RequireAuth from './componentes/RequireAuth';
+import Profiles from "./pages/Profile"
 
 const App = () => {
   return (
@@ -35,6 +36,8 @@ const App = () => {
       <User />
       <br />
       <CrearUser />
+      {/* en profile esta el ejemplo para usar el carrusel solo se importa y se le manda 
+      la peticion de la api con la variable lista */}
       <Profile />      
       <Routes>
         <Route path='/' element={ <RequireAuth> 
