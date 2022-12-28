@@ -1,58 +1,73 @@
 
-const Carrusel = () => {
-  return (
+							
+const Carrusel = (props) => {
+  
+	console.log(props)
+	const arraymapeado = props.lista.results.map((item) => ({ "titulo": item.title, "url": item.poster_path, "id": item.id }));
+/*     const peli = arraymapeado.shift();
+ */	console.log(arraymapeado)
+	const corte1 = arraymapeado.splice(6)		
+	const corte2 = corte1.splice(6)		
+	const corte3 = corte2.splice(6)				
+	console.log("cortado1")
+	console.log(arraymapeado)
+	console.log("cortado2")
+	console.log(corte1)
+	console.log("cortado3")
+	console.log(corte2)
+	console.log("cortado4")
+	console.log(corte3)
+	
+	return (
     <>
     
-<div className="container">
+<div className="container m-0 p-0 ">
 	<div className="row">
 		<div className="col-md-12">
 			<div className="lc-block">
-				<div id="carouselLogos" className="carousel slide pt-5 pb-4" data-bs-ride="carousel">
+				<div id="carouselLogos" className="carousel slide pt-1 pb-4" data-bs-ride="carousel">
 
-					<div className="carousel-inner px-5">
-						<div className="carousel-item active">
+					<div className="carousel-inner px-0 mx-0">
+						<div className="carousel-item active p-0 m-0 ">
+							<div className="row ">
+								{arraymapeado.map(peli=>(
+									<div className="col-6 col-lg-2 align-self-center p-0 m-0 " key={`${peli.id}`}>
+									 <img className="d-block w-100 p-1 m-0 " src={`https://image.tmdb.org/t/p/w500${peli.url}`} id={`${peli.id}`}alt={`${peli.titulo}`}/>
+									</div>  
+									))
+								}	
+							</div>
+						</div>
+						<div className="carousel-item">
 							<div className="row">
-								<div className="col-6 col-lg-2 align-self-center">
-									<img className="d-block w-100 px-3 mb-3" src={'../img/1.jpg'} alt=""/>
-								</div>
-								<div className="col-6 col-lg-2  align-self-center">
-									<img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/2.png" alt=""/>
-								</div>
-								<div className="col-6 col-lg-2  align-self-center">
-									<img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/3.png" alt=""/>
-								</div>
-								<div className="col-6 col-lg-2  align-self-center">
-									<img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/12.png" alt=""/>
-								</div>
-								<div className="col-6 col-lg-2  align-self-center">
-									<img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/5.png" alt=""/>
-								</div>
-								<div className="col-6 col-lg-2  align-self-center">
-									<img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/6.png" alt=""/>
-								</div>
+							{corte1.map(peli=>(
+									<div className="col-6 col-lg-2 align-self-center  p-0 m-0 " key={`${peli.id}`}>
+									 <img className="d-block w-100 p-1 m-0" src={`https://image.tmdb.org/t/p/w500${peli.url}`} id={`${peli.id}`}alt={`${peli.titulo}`}/>
+									</div>  
+									))
+								}
 							</div>
 
 						</div>
 						<div className="carousel-item">
 							<div className="row">
-								<div className="col-6 col-lg-2 align-self-center">
-									<img className="d-block w-100 px-3 mb-3" src="https://cdn.livecanvas.com/media/logos/11.png" alt=""/>
-								</div>
-								<div className="col-6 col-lg-2  align-self-center">
-									<img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/2.png" alt=""/>
-								</div>
-								<div className="col-6 col-lg-2  align-self-center">
-									<img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/3.png" alt=""/>
-								</div>
-								<div className="col-6 col-lg-2  align-self-center">
-									<img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/12.png" alt=""/>
-								</div>
-								<div className="col-6 col-lg-2  align-self-center">
-									<img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/5.png" alt=""/>
-								</div>
-								<div className="col-6 col-lg-2  align-self-center">
-									<img className="d-block w-100 px-3  mb-3" src="https://cdn.livecanvas.com/media/logos/6.png" alt=""/>
-								</div>
+							{corte2.map(peli=>(
+									<div className="col-6 col-lg-2 align-self-center  p-0 m-0 " key={`${peli.id}`}>
+									 <img className="d-block w-100 p-1 m-0" src={`https://image.tmdb.org/t/p/w500${peli.url}`} id={`${peli.id}`}alt={`${peli.titulo}`}/>
+									</div>  
+									))
+								}
+							</div>
+
+						</div>
+						<div className="carousel-item">
+							<div className="row">
+							{corte3.map(peli=>(
+									<div className="col-6 col-lg-2 align-self-center  p-0 m-0 " key={`${peli.id}`}>
+									 <img className="d-block w-100 p-1 m-0" src={`https://image.tmdb.org/t/p/w500${peli.url}`} id={`${peli.id}`}alt={`${peli.titulo}`}/>
+									</div>  
+									))
+								}
 							</div>
 
 						</div>
@@ -63,6 +78,8 @@ const Carrusel = () => {
 	<ol className="carousel-indicators position-relative mt-3">
 		<li data-bs-target="#carouselLogos" data-bs-slide-to="0" className="active bg-dark carousel-control-prev-icon"></li>
 		<li data-bs-target="#carouselLogos" data-bs-slide-to="1" className="bg-dark"></li>
+		<li data-bs-target="#carouselLogos" data-bs-slide-to="2" className="bg-dark"></li>
+		<li data-bs-target="#carouselLogos" data-bs-slide-to="3" className="bg-dark"></li>
 	</ol>
 	
 
