@@ -2,22 +2,10 @@
 							
 const Carrusel = (props) => {
   
-	console.log(props)
 	const arraymapeado = props.lista.results.map((item) => ({ "titulo": item.title, "url": item.poster_path, "id": item.id }));
-/*     const peli = arraymapeado.shift();
- */	console.log(arraymapeado)
 	const corte1 = arraymapeado.splice(6)		
 	const corte2 = corte1.splice(6)		
 	const corte3 = corte2.splice(6)				
-	console.log("cortado1")
-	console.log(arraymapeado)
-	console.log("cortado2")
-	console.log(corte1)
-	console.log("cortado3")
-	console.log(corte2)
-	console.log("cortado4")
-	console.log(corte3)
-	
 	return (
     <>
     
