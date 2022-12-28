@@ -26,6 +26,7 @@ function BtAgregarLista(data) {
         showConfirmButton: false,
         timer: 1500
       }));
+      
     } else {
       Swal.fire("Por favor loguear para guardar");
     }
