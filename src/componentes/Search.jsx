@@ -29,7 +29,7 @@ export const Search = () => {
         <input
           className={`text-light  ${styles.inputBusqueda}`}
           type="text"
-          value={search}
+          value={search || ""}
           onChange={handleInput}
           placeholder="Buscar"
           aria-label="Search"
