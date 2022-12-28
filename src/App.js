@@ -51,13 +51,13 @@ const App = () => {
         <Route path='*' element={<NotFound/>}/>
       </Routes>
       <br />
-      <Peliculas/>
       <br />
       <ListaContextProvider>
         <MiLista />
+        <MasVistas />
       </ListaContextProvider>
       <br />
-      <MasVistas />
+      
       </div>
      </BrowserRouter>    
      </UserProvider>

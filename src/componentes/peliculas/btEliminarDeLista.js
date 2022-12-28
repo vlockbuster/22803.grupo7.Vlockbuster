@@ -2,8 +2,9 @@ import React from "react";
 import { doc, updateDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { db } from "../../firebase";
-import {ListaContext} from './contextLista'
+import {ListaContext} from './ContextLista'
 import { useContext } from "react";
+import Swal from "sweetalert2";
 
 // para que funcione siempre tiene que recibir el id a eliminar
 
@@ -45,6 +46,12 @@ function BtEliminarDeLista(data) {
         Swal.fire("Por favor loguear para guardar");
       }
     });
+  };
+
+  */
+
+  const eliminarDeLista = () => {
+    Swal.fire("Pendiente");
   };
 
   return (
