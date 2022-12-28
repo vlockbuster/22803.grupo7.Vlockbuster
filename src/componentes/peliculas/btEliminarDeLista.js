@@ -40,8 +40,12 @@ function BtEliminarDeLista(data) {
         const docRef = doc(db, "usuarios", uid);
         await updateDoc(docRef, {
           lista: nuevaLista,
-        });
-        console.log("actualizado");
+        }).then(Swal.fire({
+          icon: 'success',
+          title: 'Eliminada de la lista',
+          showConfirmButton: false,
+          timer: 1500
+        }));
       } else {
         Swal.fire("Por favor loguear para guardar");
       }
