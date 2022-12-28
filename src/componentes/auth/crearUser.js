@@ -38,14 +38,13 @@ function CrearUser() {
       }
     }
   };
-//  reset usuario
+  //  reset usuario
   const reset = async () => {
     const { value: email } = await Swal.fire({
       title: "Ingrese su email",
       input: "email",
       inputPlaceholder: "email",
     });
-
     if (email) {
       sendPasswordResetEmail(auth, email)
         .then(() => {

@@ -3,6 +3,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  signOut
 } from "firebase/auth";
 import { doc, setDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase";
@@ -16,19 +17,30 @@ function Login() {
   // login con usuario en firebase
   const loginEmail = async (e) => {
     e.preventDefault();
+    desloguear()
     try {
-     await signInWithEmailAndPassword(
+      await signInWithEmailAndPassword(
         auth,
         email,
         password
-      );
-      if (!auth.currentUser.emailVerified) {
-        Swal.fire("Por favor validar el email");
-      }
-      const docRef = doc(db, "usuarios", auth.currentUser.uid);
-      const data = { uid: auth.currentUser.uid, authProvider: "local", email:auth.currentUser.email};
-      await setDoc(docRef, data)
-      // acar iria la escritura en la base
+      )
+        .then(async () => {
+          if (!auth.currentUser.emailVerified) {
+            Swal.fire("Por favor validar el email")
+            try {
+              const docRef = doc(db, "usuarios", auth.currentUser.uid);
+              const data = {
+                uid: auth.currentUser.uid,
+                authProvider: "local",
+                email: auth.currentUser.email
+              }
+              await setDoc(docRef, data)
+            } catch (error) {
+              Swal.fire("Un error a ocurrido");
+              console.log(error)
+            }
+          }
+        });
     } catch (error) {
       console.log(error);
       if (
@@ -44,10 +56,10 @@ function Login() {
 
   // login con google firebase
   const loginGoogle = async () => {
+    desloguear()
     const provider = new GoogleAuthProvider();
     try {
-    await signInWithPopup(auth, provider);
-      // console.log(userCredential);
+      await signInWithPopup(auth, provider);
       const docRef = doc(db, "usuarios", auth.currentUser.uid);
       const data = {
         uid: auth.currentUser.uid,
@@ -63,6 +75,16 @@ function Login() {
       }
     } catch (error) {
       alert(error);
+    }
+  };
+  // logout
+  const desloguear = async () => {
+    try {
+      await signOut(auth);
+      console.log("deslogueado ok");
+      // redireccionar a home
+    } catch (error) {
+      alert(error.message);
     }
   };
 
