@@ -1,30 +1,25 @@
-import React from 'react';
 import './App.css';
 import NavBar from './componentes/navbar';
 import Home from './pages/home';
 import Peliculas from './pages/peliculas';
 import Series from './pages/series';
 import NotFound from './pages/notFound';
-import {BrowserRouter, Route ,Routes} from 'react-router-dom';
+import { Route ,Routes} from 'react-router-dom';
 import Login from "./componentes/auth/login";
 import CrearUser from "./componentes/auth/crearUser";
 import User from "./componentes/auth/user";
 import MasVistas from "./componentes/peliculas/masVistas";
-import MiLista from "./componentes/peliculas/miLista";
-import ListaContextProvider from "./componentes/peliculas/contextLista";
-import UserProvider from './context/UserProvider';
 import RequireAuth from './componentes/RequireAuth';
 import MiListaPage from './pages/miLista';
 import LoginPages from './pages/LoginPage'
 
 const App = () => {
+  
+  /* Todo componente que se encuentre dentro de app 
+      puede usar  la variable authUser */
   return (
-    <div className="App">
-      <UserProvider>
-        {/* Todo componente que se encuentre dentro de  UserProvider puede usar 
-        la variable authUser en Home hay un ejemplo de como usarla 
-        */}
-      <BrowserRouter>
+
+<div className="App">
       <header className="App-header">
         <NavBar/>
       </header>
@@ -40,8 +35,9 @@ const App = () => {
       la peticion de la api con la variable lista */}
       <Routes>
         <Route element={ <RequireAuth/>}> 
-          {/* aca van los componentes que necesitan que el usuario este login  para eso se usa el componente <RequireAuth>*/}
-          {/* tambiensirve para proteger solo 1 componente 
+          {/* aca van los paginas que necesitan que el usuario este login  para eso 
+          se usa el componente <RequireAuth>*/}
+          {/* tambiensirve para proteger componentes 
           <RequireAuth/>
           <componente a proteger/>
           <RequireAuth/>
@@ -57,15 +53,10 @@ const App = () => {
       </Routes>
       <br />
       <br />
-      <ListaContextProvider>
-        <MiLista />
         <MasVistas />
-      </ListaContextProvider>
       <br />
       
       </div>
-     </BrowserRouter>    
-     </UserProvider>
     </div>
   );
 }
