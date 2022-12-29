@@ -1,15 +1,19 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import BtAgregar from './btAgregarLista'
 import { Link } from 'react-router-dom'
 import BtVer from './btVer'
+import { ListaContext } from "./contextLista";
 
 function MasVistas() {
   const [pelis, setPelis] = useState([]);
   const [pagina, setPagina] = useState(1);
   const key = "e4e0f9c7c990f3921d36b5095affbe99"
   // const key = process.env.REACT_APP_KEY_TMDB
+  const [lista] = useContext(ListaContext)
 
+
+console.log(lista)
   useEffect(() => {
     // fetch de api mas vistas
     const datos = async () => {
