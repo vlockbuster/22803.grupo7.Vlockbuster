@@ -15,7 +15,7 @@ function BtVer(id) {
         );
         let data = await response.json();
         let idVideo = data.videos.results[0].key
-        navigate(`/detalle/${idVideo}`)
+        navigate(`/watch/${idVideo}`)
     }
 
 

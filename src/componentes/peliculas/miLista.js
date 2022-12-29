@@ -5,7 +5,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import BtEliminar from "./btEliminarDeLista";
 import { ListaContext } from "./contextLista";
-import BtVer from './btVer'
+
 
 function MiLista() {
   const [lista, setLista] = useContext(ListaContext)
@@ -53,7 +53,6 @@ function MiLista() {
               alt={item.original_title}
             />
             <BtEliminar id={item.id} />
-            <BtVer id={item.id} />
           </div>
         ))}
       </div>
