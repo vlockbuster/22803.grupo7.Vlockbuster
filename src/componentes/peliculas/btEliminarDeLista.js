@@ -5,6 +5,8 @@ import { db } from "../../firebase";
 import {ListaContext} from './contextLista'
 import { useContext } from "react";
 import Swal from "sweetalert2";
+import Swal from "sweetalert2";
+
 // para que funcione siempre tiene que recibir el id a eliminar
 
 function BtEliminarDeLista(data) {
@@ -46,13 +48,13 @@ function BtEliminarDeLista(data) {
           showConfirmButton: false,
           timer: 1500
         }));
-        
       } else {
         Swal.fire("Por favor loguear para guardar");
       }
     });
   };
 
+  
   return (
     <>
       <button type="button" onClick={eliminarDeLista}>

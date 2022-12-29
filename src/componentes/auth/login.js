@@ -8,11 +8,12 @@ import {
 import { doc, setDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase";
 import Swal from "sweetalert2";
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
 
   // login con usuario en firebase
   const loginEmail = async (e) => {
@@ -23,8 +24,7 @@ function Login() {
         auth,
         email,
         password
-      )
-        .then(async () => {
+      ).then(async () => {
           if (!auth.currentUser.emailVerified) {
             Swal.fire("Por favor validar el email")
             try {
@@ -39,6 +39,8 @@ function Login() {
               Swal.fire("Un error a ocurrido");
               console.log(error)
             }
+          }else{
+            navigate('/')
           }
         });
     } catch (error) {
@@ -59,7 +61,7 @@ function Login() {
     desloguear()
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
+      await signInWithPopup(auth, provider).then(() => { navigate('/') });
       const docRef = doc(db, "usuarios", auth.currentUser.uid);
       const data = {
         uid: auth.currentUser.uid,
@@ -81,8 +83,6 @@ function Login() {
   const desloguear = async () => {
     try {
       await signOut(auth);
-      console.log("deslogueado ok");
-      // redireccionar a home
     } catch (error) {
       alert(error.message);
     }
@@ -90,10 +90,10 @@ function Login() {
 
   return (
     <div>
-      login
+      <p className="m-2 p-1">login</p>
       <form onSubmit={loginEmail}>
         <label htmlFor="email"></label>
-        <input
+        <input className="m-2 p-1"
           type="text"
           placeholder="Ingrese email"
           autoComplete="username"
@@ -102,7 +102,7 @@ function Login() {
           required
         />
         <label htmlFor="password"></label>
-        <input
+        <input className="m-2 p-1"
           type="password"
           autoComplete="current-password"
           placeholder="Ingrese password"
@@ -110,10 +110,10 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Login</button>
+        <button className="m-2 p-1 btn btn-dark" type="submit">Login</button>
       </form>
       <br />
-      <button type="button" onClick={loginGoogle}>
+      <button className="m-2 p-1 btn btn-warning" type="button" onClick={loginGoogle}>
         Login Google
       </button>
     </div>

@@ -2,10 +2,12 @@ import React from "react";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { auth, db } from "../../firebase";
 import Swal from "sweetalert2";
+import { useNavigate } from 'react-router-dom';
 
 // para que funciones siempre tiene que recibir los parametros id y poster_path
 
 function BtAgregarLista(data) {
+  const navigate = useNavigate();
   // agregar a lista en firebase
   const agregarLista = async () => {
     let id = data.id;
@@ -25,10 +27,20 @@ function BtAgregarLista(data) {
         title: 'Agregado a la lista',
         showConfirmButton: false,
         timer: 1500
-      }));
-      
+      }))
+        ;
     } else {
-      Swal.fire("Por favor loguear para guardar");
+      Swal.fire({
+        html: "Por favor loguear para guardar",
+        confirmButtonText: 'Login'
+      })
+        .then(function (inputvalue) {
+          if (inputvalue.isConfirmed) {
+            navigate('/login');
+          } else if (inputvalue.isCancel) {
+            Swal.fire('')
+          }
+        });
     }
   };
 
