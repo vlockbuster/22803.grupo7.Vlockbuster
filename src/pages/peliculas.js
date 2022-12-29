@@ -1,8 +1,15 @@
+import { useContext } from "react";
+import { UserContext } from "../context/UserProvider";
 
- const peliculas = () => {
+const Peliculas = () => {
+  const { authUser } = useContext(UserContext);
+
   return (
-    <div>peliculas</div>
-  )
-}
+    <>
+      <div>peliculas</div>
+      <h2>{authUser ? "en linea" : "offline"}</h2>
+    </>
+  );
+};
 
-export default peliculas;
+export default Peliculas;

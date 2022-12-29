@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { doc, updateDoc, arrayUnion } from "firebase/firestore";
-import { auth, db } from "../firebase";
-import Swal from "sweetalert2";
+
 import { useConsulta } from "../hooks/useConsulta";
 import { useDebounce } from "../hooks/useDebounce";
 import NoResults from "./NoResults";
+import BtAgregar from "../componentes/peliculas/btAgregarLista";
 
 function SearchResults() {
   const [pelis, setPelis] = useState([]);
@@ -47,32 +46,11 @@ function SearchResults() {
     let selDetalle = e.target.dataset.dato;
     console.log("detalle:", pelis[selDetalle]);
   };
-
-  // agregar a lista en firebase
-  const agregarLista = async (e) => {
-    let id = e.target.dataset.id;
-    let poster_path = e.target.dataset.poster_path;
-    // console.log("lista:", id, poster_path);
-    if (auth.currentUser) {
-      let uid = auth.currentUser.uid;
-      // console.log(uid);
-      const docRef = doc(db, "usuarios", uid);
-      await updateDoc(docRef, {
-        lista: arrayUnion({
-          id,
-          poster_path,
-        }),
-      });
-    } else {
-      Swal.fire("Por favor loguear para guardar");
-    }
-  };
-
   return (
     <>
       <div className="bg-dark p-1">
         <br />
-        <h3 className="text-center text-light pt-1">Resultado de busqueda</h3>
+        <h3 className="text-center text-light">Resultado de Busqueda</h3>
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 p-1">
           {pelis.map((item, index) => (
             <div key={index} className="card bg-secondary p-1">
@@ -83,14 +61,7 @@ function SearchResults() {
                 onClick={verDetalle}
                 alt={item.original_title}
               />
-              <button
-                className="m-2 p-1 btn btn-success btn-badge"
-                type="button"
-                onClick={agregarLista}
-                data-id={item.id}
-                data-poster_path={item.poster_path}>
-                + lista
-              </button>
+              <BtAgregar id={item.id} poster_path={item.poster_path} />
             </div>
           ))}
         </div>
