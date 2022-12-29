@@ -1,13 +1,21 @@
 import { useContext } from "react";
 import { UserContext } from "../context/UserProvider";
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 const RequireAuth = ({children}) => { 
     const {authUser} = useContext(UserContext)
     if(!authUser){
-        return <Navigate to="login" />
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'iniciá  sesión para ver tu lista ',
+          })
+        return <Navigate to="/login" />
     }
-    return children
+
+    return children ? children : <Outlet/>
 }
 
 export default RequireAuth;
