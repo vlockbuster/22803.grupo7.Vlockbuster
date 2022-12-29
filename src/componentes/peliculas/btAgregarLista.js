@@ -20,7 +20,13 @@ function btAgregarLista(data) {
           id,
           poster_path,
         }),
-      });
+      }).then(Swal.fire({
+        icon: 'success',
+        title: 'Agregado a la lista',
+        showConfirmButton: false,
+        timer: 1500
+      }))
+      ;
     } else {
       Swal.fire("Por favor loguear para guardar");
     }
