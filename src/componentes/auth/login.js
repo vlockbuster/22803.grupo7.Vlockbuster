@@ -8,11 +8,12 @@ import {
 import { doc, setDoc, updateDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase";
 import Swal from "sweetalert2";
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
 
   // login con usuario en firebase
   const loginEmail = async (e) => {
@@ -80,9 +81,7 @@ function Login() {
   // logout
   const desloguear = async () => {
     try {
-      await signOut(auth);
-      console.log("deslogueado ok");
-      // redireccionar a home
+      await signOut(auth).then(() => { navigate('/') })
     } catch (error) {
       alert(error.message);
     }
@@ -110,10 +109,10 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button className="m-2 p-1 btn btn-dark"type="submit">Login</button>
+        <button className="m-2 p-1 btn btn-dark" type="submit">Login</button>
       </form>
       <br />
-      <button className="m-2 p-1 btn btn-warning"type="button" onClick={loginGoogle}>
+      <button className="m-2 p-1 btn btn-warning" type="button" onClick={loginGoogle}>
         Login Google
       </button>
     </div>
