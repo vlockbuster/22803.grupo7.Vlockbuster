@@ -1,15 +1,11 @@
-import { useContext } from "react";
-import {UserContext} from "../context/UserProvider"
+import MasVistas from "../componentes/peliculas/masVistas";
 
  const Peliculas = () => {
- const {authUser} = useContext(UserContext)
 
   return (
-    <>
-    <div>peliculas</div>
-    <h2>{authUser ? 'en linea' : 'offline'}
-    </h2>
-    </>
+  
+    <MasVistas/>
+  
   )
 }
 

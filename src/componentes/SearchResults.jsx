@@ -48,10 +48,10 @@ function SearchResults() {
   };
   return (
     <>
-      <div className="bg-dark p-1">
+      <div className="bg-dark p-1 mt-0">
         <br />
-        <h3 className="text-center text-light">Resultado de Busqueda</h3>
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 p-1">
+{/*         <h3 className="text-center text-light">Resultado de Busqueda</h3>
+ */}        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 p-1">
           {pelis.map((item, index) => (
             <div key={index} className="card bg-secondary p-1">
               <img
@@ -66,13 +66,13 @@ function SearchResults() {
           ))}
         </div>
       </div>
-      <button
+     {/*  <button
         className="m-2 p-1 btn btn-warning btn-badge"
         type="button"
         onClick={verMas}
         disabled={pagina > 15 ? true : false}>
         Ver más
-      </button>
+      </button> */}
     </>
   );
 }

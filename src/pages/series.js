@@ -1,7 +1,8 @@
+import Consultas from "../componentes/peliculas/consulta";
 
  const series = () => {
   return (
-    <div>series</div>
+    <Consultas/>
   )
 }
 
