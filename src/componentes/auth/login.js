@@ -24,8 +24,7 @@ function Login() {
         auth,
         email,
         password
-      )
-        .then(async () => {
+      ).then(async () => {
           if (!auth.currentUser.emailVerified) {
             Swal.fire("Por favor validar el email")
             try {
@@ -40,6 +39,8 @@ function Login() {
               Swal.fire("Un error a ocurrido");
               console.log(error)
             }
+          }else{
+            navigate('/')
           }
         });
     } catch (error) {
@@ -60,7 +61,7 @@ function Login() {
     desloguear()
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
+      await signInWithPopup(auth, provider).then(() => { navigate('/') });
       const docRef = doc(db, "usuarios", auth.currentUser.uid);
       const data = {
         uid: auth.currentUser.uid,
@@ -81,7 +82,7 @@ function Login() {
   // logout
   const desloguear = async () => {
     try {
-      await signOut(auth).then(() => { navigate('/') })
+      await signOut(auth);
     } catch (error) {
       alert(error.message);
     }
