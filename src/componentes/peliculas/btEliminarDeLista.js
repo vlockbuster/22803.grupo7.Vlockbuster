@@ -5,7 +5,7 @@ import { db } from "../../firebase";
 import {ListaContext} from './contextLista'
 import { useContext } from "react";
 import Swal from "sweetalert2";
-import Swal from "sweetalert2";
+
 
 // para que funcione siempre tiene que recibir el id a eliminar
 
