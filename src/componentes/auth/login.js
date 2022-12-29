@@ -40,7 +40,7 @@ function Login() {
               console.log(error)
             }
           }else{
-            navigate('/')
+            navigate('/MiLista')
           }
         });
     } catch (error) {
@@ -61,7 +61,7 @@ function Login() {
     desloguear()
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider).then(() => { navigate('/') });
+      await signInWithPopup(auth, provider).then(() => { navigate('/MiLista') });
       const docRef = doc(db, "usuarios", auth.currentUser.uid);
       const data = {
         uid: auth.currentUser.uid,
