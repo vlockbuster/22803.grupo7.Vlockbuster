@@ -1,8 +1,9 @@
 import React from "react";
-import { useState, useEffect,useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import BtAgregar from './btAgregarLista'
 import { Link } from 'react-router-dom'
 import BtVer from './btVer'
+import BtEliminar from './btEliminarDeLista'
 import { ListaContext } from "./contextLista";
 
 function MasVistas() {
@@ -10,10 +11,11 @@ function MasVistas() {
   const [pagina, setPagina] = useState(1);
   const key = "e4e0f9c7c990f3921d36b5095affbe99"
   // const key = process.env.REACT_APP_KEY_TMDB
+
+  // estas 2 lineas son para mas abajo comprobar si existe la peli en la lista
   const [lista] = useContext(ListaContext)
+  let existeId = lista.map((item) => (item.id));
 
-
-console.log(lista)
   useEffect(() => {
     // fetch de api mas vistas
     const datos = async () => {
@@ -41,14 +43,15 @@ console.log(lista)
           {pelis.map((item, index) => (
             <div key={index} className="card bg-secondary p-1">
               <Link to={`/detalle/${item.id}`}>
-              <img
-                className="card-img-top p-1"
-                src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                data-dato={item.id}
-                alt={item.original_title}
-              />
+                <img
+                  className="card-img-top p-1"
+                  src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                  data-dato={item.id}
+                  alt={item.original_title}
+                />
               </Link>
-              <BtAgregar id={item.id} poster_path={item.poster_path} />
+              {/* aca esta la logica de botones si esta logueado ve uno u otro boton */}
+              {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} />}
               <BtVer id={item.id} />
             </div>
           ))}
