@@ -5,6 +5,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import BtEliminar from "./btEliminarDeLista";
 import { ListaContext } from "./contextLista";
+import BtVer from './btVer'
 
 function MiLista() {
   const [lista, setLista] = useContext(ListaContext)
@@ -49,10 +50,10 @@ function MiLista() {
               className="card-img-top"
               src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
               data-id={item.id}
-              //   onClick={verDetalle}
               alt={item.original_title}
             />
             <BtEliminar id={item.id} />
+            <BtVer id={item.id} />
           </div>
         ))}
       </div>
