@@ -2,6 +2,7 @@ import React from 'react'
 import Carrusel from '../componentes/Carrusel'
 import Carrusel1 from '../componentes/Carrusel1'
 import Carrusel2 from '../componentes/Carrusel2'
+import MasVistas from '../componentes/peliculas/masVistas'
 
 const Home = () => {
   /* lista es solo una simulacion de la peticion a la api */
@@ -413,11 +414,14 @@ const Home = () => {
      "total_results": 729381
    } 
   return (
+    <>
     <div>
  <Carrusel lista ={lista}/>
   <Carrusel1 lista ={lista}/>  
   <Carrusel2 lista ={lista} />
    </div>
+   <MasVistas/>
+    </>
   )
 }
 
