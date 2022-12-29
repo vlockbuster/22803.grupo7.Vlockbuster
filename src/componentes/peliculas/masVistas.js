@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import BtAgregar from './btAgregarLista'
 import { Link } from 'react-router-dom'
+import BtVer from './btVer'
 
 function MasVistas() {
   const [pelis, setPelis] = useState([]);
@@ -44,6 +45,7 @@ function MasVistas() {
               />
               </Link>
               <BtAgregar id={item.id} poster_path={item.poster_path} />
+              <BtVer id={item.id} />
             </div>
           ))}
         </div>
