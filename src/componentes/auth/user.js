@@ -1,3 +1,4 @@
+import "../user.css"
 import React, { useState, useEffect, useContext } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase";
@@ -37,7 +38,7 @@ function User() {
   };
 
   return (
-    <div>
+    <div className="container-user">
       {authUser ? (
         <>
           <p className="m-2 p-1">{`logueado ${authUser.email}`}</p>
