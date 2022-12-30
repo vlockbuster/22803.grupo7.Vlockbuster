@@ -3,7 +3,6 @@ import PeliculaDetalle from "../componentes/peliculas/PeliculaDetalle"
 
 const DetalleId = () => {
   
-    const param  = useParams();
     return (
     <div>
         <PeliculaDetalle/>

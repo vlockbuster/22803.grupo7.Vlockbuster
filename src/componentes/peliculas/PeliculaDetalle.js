@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
-import Swal from "sweetalert2";
 import html2canvas from 'html2canvas';
 /*
 import BtEliminar from "./btEliminarDeLista";
@@ -15,7 +14,6 @@ import { ListaContext } from "./contextLista";
 function PeliculaDetalle() {
 
   const [pelicula, setPelicula] = useState(null);
-  const [genero, setGenero] = useState( '' );
   //const [enLista, setEnLista] = useState( null);
   const key = "e4e0f9c7c990f3921d36b5095affbe99"
  
@@ -23,7 +21,6 @@ function PeliculaDetalle() {
 
   useEffect(() => {
 
-    if( ! pelicula ){
         fetch( `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=es-ES`)
             
           .then( data  => {
@@ -49,8 +46,7 @@ function PeliculaDetalle() {
           
             //.then( console.log( pelicula ))
             .catch(err =>alert('Solicitud fallida --> ' + err));    
-    } 
-}, []);
+}, [id]);
 
 /*
 useEffect(() => {
