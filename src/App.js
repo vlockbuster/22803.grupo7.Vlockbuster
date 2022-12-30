@@ -13,6 +13,7 @@ import MiListaPage from './pages/miLista';
 import LoginPages from './pages/LoginPage'
 import DetalleId from './pages/detalleId';
 import Watch from './pages/watch';
+import DetalleTV from './pages/detalleTV';
 
 const App = () => {
   
@@ -47,6 +48,7 @@ const App = () => {
         <Route path='/Login' element={<LoginPages/>}/>
         <Route path='/detalle/:id' element={<DetalleId/>}/>
         <Route path='/watch/:id' element={<Watch/>}/>
+        <Route path='/detalleTv/:id' element={<DetalleTV/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
       <br />
