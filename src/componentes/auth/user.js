@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from 'react-router-dom';
+import { ListaContext } from "../peliculas/contextLista";
 
 // estado del usuario
 function User() {
   const [authUser, setAuthUser] = useState(null);
   const navigate = useNavigate();
-  
+  const [lista, setLista] = useContext(ListaContext)
+
   useEffect(() => {
     const logueado = onAuthStateChanged(auth, (user) => {
       if (user && user.emailVerified) {
@@ -23,7 +25,10 @@ function User() {
 
   const desloguear = async () => {
     try {
-      await signOut(auth).then(() => { navigate('/') });
+      await signOut(auth).then(() => {
+        // setLista([])
+        navigate('/')
+      });
     } catch (error) {
       alert(error.message);
     }

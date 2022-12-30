@@ -6,6 +6,7 @@ import BtAgregar from './peliculas/btAgregarLista'
 import BtVer from './peliculas/btVer'
 import BtEliminar from './peliculas/btEliminarDeLista'
 import { ListaContext } from "./peliculas/contextLista";
+import { Link } from 'react-router-dom'
 
 
 function Discovery() {
@@ -44,26 +45,6 @@ function Discovery() {
     console.log("detalle:", pelis[selDetalle]);
   };
 
-  // agregar a lista en firebase
-  const agregarLista = async (e) => {
-    let id = e.target.dataset.id;
-    let poster_path = e.target.dataset.poster_path;
-    // console.log("lista:", id, poster_path);
-    if (auth.currentUser) {
-      let uid = auth.currentUser.uid;
-      // console.log(uid);
-      const docRef = doc(db, "usuarios", uid);
-      await updateDoc(docRef, {
-        lista: arrayUnion({
-          id,
-          poster_path,
-        }),
-      });
-    } else {
-      Swal.fire("Por favor loguear para guardar");
-    }
-  };
-
   return (
     <>
       <div className="bg-dark p-1">
@@ -72,15 +53,20 @@ function Discovery() {
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 p-1">
           {pelis.map((item, index) => (
             <div key={index} className="card bg-secondary p-1">
+               <Link to={`/detalle/${item.id}`}>
               <img
                 className="card-img-top p-1"
-                src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                // src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                src={item.poster_path == undefined
+                  ? `./popcorn.png`
+                  : `https://image.tmdb.org/t/p/w500${item.poster_path}`}
                 data-dato={index}
                 onClick={verDetalle}
                 alt={item.original_title}
               />
-             {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} />}
-              <BtVer id={item.id} contenido="serie" />
+              </Link>
+             {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path}  contenido="pelicula"/>}
+              <BtVer id={item.id} contenido="pelicula" />
             </div>
           ))}
         </div>

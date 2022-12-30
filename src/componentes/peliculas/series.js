@@ -1,13 +1,23 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect , useContext} from "react";
 import BtAgregar from './btAgregarLista'
 import { Link } from 'react-router-dom'
+import BtVer from './btVer'
+import BtEliminar from './btEliminarDeLista'
+import { ListaContext } from "./contextLista";
+
+
 
 function VerSeries() {
   const [pelis, setPelis] = useState([]);
   const [pagina, setPagina] = useState(1);
   const key = "e4e0f9c7c990f3921d36b5095affbe99"
   // const key = process.env.REACT_APP_KEY_TMDB
+
+// estas 2 lineas son para mas abajo comprobar si existe la peli en la lista
+const [lista] = useContext(ListaContext)
+let existeId = lista.map((item) => (item.id));
+
 
   useEffect(() => {
     // fetch de api mas vistas
@@ -38,12 +48,16 @@ function VerSeries() {
               <Link to={`/detalle/${item.id}`}>
               <img
                 className="card-img-top p-1"
-                src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                // src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                src={item.poster_path == undefined
+                  ? `./popcorn.png`
+                  : `https://image.tmdb.org/t/p/w500${item.poster_path}`}
                 data-dato={item.id}
                 alt={item.original_title}
               />
               </Link>
-              <BtAgregar id={item.id} poster_path={item.poster_path} />
+              {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} contenido="serie"/>}
+              <BtVer id={item.id} contenido="serie" />
             </div>
           ))}
         </div>

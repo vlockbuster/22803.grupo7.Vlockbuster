@@ -6,13 +6,10 @@ instanciarla como en la linea 8 y luego usarla */
 
  const MiListaPage = () => {
 
-  const {authUser} = useContext(UserContext);
   return (
     <>
     <div>
-      <h1> 
-      {authUser && (<p>{`Bienvenido ${authUser.email}`}</p> )}
-      </h1> 
+      
     </div>
     <MiLista/>
     </>

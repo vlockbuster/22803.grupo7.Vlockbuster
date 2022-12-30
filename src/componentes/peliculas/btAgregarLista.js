@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom';
 import { ListaContext } from './contextLista'
 
-// para que funciones siempre tiene que recibir los parametros id y poster_path
+// para que funciones siempre tiene que recibir los parametros id, poster_path y contenido
 
 function BtAgregarLista(data) {
   const navigate = useNavigate();
