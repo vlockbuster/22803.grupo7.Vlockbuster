@@ -9,6 +9,7 @@ function User() {
   const [authUser, setAuthUser] = useState(null);
   const navigate = useNavigate();
   const [lista, setLista] = useContext(ListaContext)
+  
 
   useEffect(() => {
     const logueado = onAuthStateChanged(auth, (user) => {

@@ -59,6 +59,7 @@ function MasVistas() {
               {/* aca esta la logica de botones si esta logueado ve uno u otro boton */}
               {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} contenido="pelicula" />}
               <BtVer id={item.id} contenido="pelicula" />
+              
             </div>
           ))}
         </div>
