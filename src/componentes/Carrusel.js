@@ -1,11 +1,14 @@
-
+import React from 'react'
 							
-const Carrusel = (props) => {
+function Carrusel({lista})  {
+
+	console.log("llego a carrusel jony", lista)
   
-	const arraymapeado = props.lista.results.map((item) => ({ "titulo": item.title, "url": item.poster_path, "id": item.id }));
+	const arraymapeado = lista.map((item) => ({ "titulo": item.title, "url": item.poster_path, "id": item.id }));
 	const corte1 = arraymapeado.splice(6)		
 	const corte2 = corte1.splice(6)		
-	const corte3 = corte2.splice(6)				
+	const corte3 = corte2.splice(6)		
+
 	return (
     <>
     
