@@ -1,7 +1,7 @@
 
 const Carrusel1 = (props) => {
 
-        const arraymapeado = props.lista.results.map((item) => ({ 
+        const arraymapeado = props.lista.map((item) => ({ 
            "titulo": item.title,
            "url": item.poster_path,
            "id": item.id,
