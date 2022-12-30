@@ -6,6 +6,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import BtEliminar from "./btEliminarDeLista";
 import { ListaContext } from "./contextLista";
 import { Link } from 'react-router-dom'
+import BtVer from './btVer'
 
 
 function MiLista() {
@@ -24,6 +25,7 @@ function MiLista() {
             let listaok = docu.data().lista;
             if (listaok) {
               setLista(listaok);
+              console.log(listaok.poster_path)
             }
           } catch (error) {
             console.log(error);
@@ -49,12 +51,16 @@ function MiLista() {
             <Link to={`/detalle/${item.id}`}>
             <img
               className="card-img-top"
-              src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+              // src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+              src={item.poster_path == undefined
+              ? `./popcorn.png`
+              : `https://image.tmdb.org/t/p/w500${item.poster_path}`}
               data-id={item.id}
               alt={item.original_title}
             />
             </Link>
             <BtEliminar id={item.id} />
+            <BtVer id={item.id} contenido={item.contenido} />
           </div>
         ))}
       </div>

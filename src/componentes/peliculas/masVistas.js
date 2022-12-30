@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from "react";
 import { useState, useEffect,  useContext } from "react";
 import { Link } from 'react-router-dom'
@@ -48,14 +49,18 @@ function MasVistas() {
               <Link to={`/detalle/${item.id}`}>
                 <img
                   className="card-img-top p-1"
-                  src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                  // src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                  src={item.poster_path == undefined
+                    ? `./popcorn.png`
+                    : `https://image.tmdb.org/t/p/w500${item.poster_path}`}
                   data-dato={item.id}
                   alt={item.original_title}
                 />
               </Link>
               {/* aca esta la logica de botones si esta logueado ve uno u otro boton */}
-              {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} />}
+              {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} contenido="pelicula" />}
               <BtVer id={item.id} contenido="pelicula" />
+              
             </div>
           ))}
         </div>

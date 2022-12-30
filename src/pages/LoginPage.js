@@ -1,21 +1,25 @@
 import CrearUser from "../componentes/auth/crearUser"
 import Login from "../componentes/auth/login"
 import User from "../componentes/auth/user"
+import { auth } from "../firebase";
 
- const LoginPages  = () => {
+const LoginPages = () => {
   return (
-    
-      <div>
-    <br /><br /><br /><br /><br />
+
+    <div>
+      <br /><br /><br /><br /><br />
       <br />
-      <Login />
-           <br />
-      <User/>
-            <br />
-      <CrearUser/>
+      {auth.currentUser
+        ? <User />
+        :<> <Login />
+        <CrearUser /> 
+        <br />    
+        </>}
+        
+      <br />
     </div>
   )
 }
 
 export default LoginPages
-;
+  ;

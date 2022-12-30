@@ -1,7 +1,7 @@
 import React from "react";
 import { doc, updateDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { db } from "../../firebase";
+import { db,auth } from "../../firebase";
 import {ListaContext} from './contextLista'
 import { useContext } from "react";
 import Swal from "sweetalert2";
@@ -16,19 +16,24 @@ function BtEliminarDeLista(data) {
   // elimina de lista
   const eliminarDeLista = () => {
     let id = data.id;
-    if (lista.length > 1) {
-      nuevaLista = lista.filter((list) => list.id !== id);
-      setLista(nuevaLista);
-      eliminarDeDB();
-      console.log("nueva", nuevaLista);
-      console.log("lista", lista);
+    if (auth.currentUser) {
+      if (lista.length > 1) {
+        nuevaLista = lista.filter((list) => list.id !== id);
+        setLista(nuevaLista);
+        eliminarDeDB();
+        // console.log("nueva", nuevaLista);
+        // console.log("lista", lista);
+      } else {
+        setLista([]);
+        // eslint-disable-next-line no-unused-expressions
+        nuevaLista.shift;
+        eliminarDeDB();
+        // console.log("nueva vacia", nuevaLista);
+      }
     } else {
-      setLista([]);
-      // eslint-disable-next-line no-unused-expressions
-      nuevaLista.shift;
-      eliminarDeDB();
-      console.log("nueva vacia", nuevaLista);
+      Swal.fire("Por favor loguear eliminar")
     }
+    
   };
 
   // elimina de DB
@@ -49,7 +54,7 @@ function BtEliminarDeLista(data) {
           timer: 1500
         }));
       } else {
-        Swal.fire("Por favor loguear para guardar");
+        Swal.fire("Por favor loguear eliminar");
       }
     });
   };

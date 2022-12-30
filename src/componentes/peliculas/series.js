@@ -45,15 +45,18 @@ let existeId = lista.map((item) => (item.id));
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 p-1">
           {pelis.map((item, index) => (
             <div key={index} className="card bg-secondary p-1">
-              <Link to={`/detalle/${item.id}`}>
+              <Link to={`/detalleTV/${item.id}`}>
               <img
                 className="card-img-top p-1"
-                src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                // src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                src={item.poster_path == undefined
+                  ? `./popcorn.png`
+                  : `https://image.tmdb.org/t/p/w500${item.poster_path}`}
                 data-dato={item.id}
                 alt={item.original_title}
               />
               </Link>
-              {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} />}
+              {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} contenido="serie"/>}
               <BtVer id={item.id} contenido="serie" />
             </div>
           ))}
