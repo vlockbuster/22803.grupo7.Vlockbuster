@@ -44,26 +44,6 @@ function Discovery() {
     console.log("detalle:", pelis[selDetalle]);
   };
 
-  // agregar a lista en firebase
-  const agregarLista = async (e) => {
-    let id = e.target.dataset.id;
-    let poster_path = e.target.dataset.poster_path;
-    // console.log("lista:", id, poster_path);
-    if (auth.currentUser) {
-      let uid = auth.currentUser.uid;
-      // console.log(uid);
-      const docRef = doc(db, "usuarios", uid);
-      await updateDoc(docRef, {
-        lista: arrayUnion({
-          id,
-          poster_path,
-        }),
-      });
-    } else {
-      Swal.fire("Por favor loguear para guardar");
-    }
-  };
-
   return (
     <>
       <div className="bg-dark p-1">
@@ -79,8 +59,8 @@ function Discovery() {
                 onClick={verDetalle}
                 alt={item.original_title}
               />
-             {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} />}
-              <BtVer id={item.id} contenido="serie" />
+             {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path}  contenido="pelicula"/>}
+              <BtVer id={item.id} contenido="pelicula" />
             </div>
           ))}
         </div>
