@@ -16,7 +16,13 @@ function BtVer(id) {
         auth.currentUser ? peliOserie() : Swal.fire({
             html: "Por favor loguear para ver",
             confirmButtonText: 'Login'
-        })
+        }).then(function (inputvalue) {
+            if (inputvalue.isConfirmed) {
+              navigate('/login');
+            } else if (inputvalue.isCancel) {
+              Swal.fire('')
+            }
+          });
     }
 
     function peliOserie() {

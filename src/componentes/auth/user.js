@@ -8,7 +8,9 @@ import { ListaContext } from "../peliculas/contextLista";
 function User() {
   const [authUser, setAuthUser] = useState(null);
   const navigate = useNavigate();
+  // eslint-disable-next-line no-unused-vars
   const [lista, setLista] = useContext(ListaContext)
+  
 
   useEffect(() => {
     const logueado = onAuthStateChanged(auth, (user) => {
