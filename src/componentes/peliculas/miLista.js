@@ -48,7 +48,6 @@ function MiLista() {
         {lista.map((item) => (
           <div key={item.id} className="card bg-secondary my-2">
             <Link to={`/detalle/${item.id}`}>
-              {item.poster_path}
             <img
               className="card-img-top"
               // src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
