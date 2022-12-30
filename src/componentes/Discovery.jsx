@@ -6,6 +6,7 @@ import BtAgregar from './peliculas/btAgregarLista'
 import BtVer from './peliculas/btVer'
 import BtEliminar from './peliculas/btEliminarDeLista'
 import { ListaContext } from "./peliculas/contextLista";
+import { Link } from 'react-router-dom'
 
 
 function Discovery() {
@@ -52,6 +53,7 @@ function Discovery() {
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 p-1">
           {pelis.map((item, index) => (
             <div key={index} className="card bg-secondary p-1">
+               <Link to={`/detalle/${item.id}`}>
               <img
                 className="card-img-top p-1"
                 src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
@@ -59,6 +61,7 @@ function Discovery() {
                 onClick={verDetalle}
                 alt={item.original_title}
               />
+              </Link>
              {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path}  contenido="pelicula"/>}
               <BtVer id={item.id} contenido="pelicula" />
             </div>

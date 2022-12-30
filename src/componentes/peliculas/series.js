@@ -53,7 +53,7 @@ let existeId = lista.map((item) => (item.id));
                 alt={item.original_title}
               />
               </Link>
-              {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} />}
+              {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} contenido="serie"/>}
               <BtVer id={item.id} contenido="serie" />
             </div>
           ))}
