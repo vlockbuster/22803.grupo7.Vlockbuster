@@ -24,6 +24,7 @@ function MiLista() {
             let listaok = docu.data().lista;
             if (listaok) {
               setLista(listaok);
+              console.log(listaok.poster_path)
             }
           } catch (error) {
             console.log(error);
@@ -47,9 +48,13 @@ function MiLista() {
         {lista.map((item) => (
           <div key={item.id} className="card bg-secondary my-2">
             <Link to={`/detalle/${item.id}`}>
+              {item.poster_path}
             <img
               className="card-img-top"
-              src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+              // src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+              src={item.poster_path == undefined
+              ? `./popcorn.png`
+              : `https://image.tmdb.org/t/p/w500${item.poster_path}`}
               data-id={item.id}
               alt={item.original_title}
             />
