@@ -10,33 +10,33 @@ const Footer = () => {
 <>
     <div className="row"> 
         <NavLink to={"/"}  className="col-2 justify-content-center d-flex align-items-center">
-        <img src="./popcorn.png" width={100}   alt="logo" />
+        <img className="rounded-circle" src="./popcorn.png" width={100}   alt="logo" />
         </NavLink>
-        <div className="col-5 d-flex justify-content-center">
-          <ul class="list-group list-group-flush h5 ">
-            <h3 className="text-center">Redes </h3>
-            <li class="list-group-item "><AiOutlineGithub className="h1 p-0 m-0" /> Repositorio</li>
-            <li class="list-group-item"><AiOutlineLinkedin className="h1 p-0 m-0"/> Linkedin</li>
-            <li class="list-group-item"><AiOutlineInstagram className="h1 p-0 m-0" /> Instagram</li>
-            <li class="list-group-item"><AiOutlineFacebook className="h1 p-0 m-0" /> Facebook</li>
+        <div className="col-5 d-flex justify-content-center ">
+          <ul class="list-group list-group-flush h5  ">
+            <h3 className="text-center text-light bg-dark">Redes </h3>
+            <li class="list-group-item text-light bg-dark"><AiOutlineGithub className="h1 p-0 m-0" /> Repositorio</li>
+            <li class="list-group-item text-light bg-dark"><AiOutlineLinkedin className="h1 p-0 m-0"/> Linkedin</li>
+            <li class="list-group-item text-light bg-dark"><AiOutlineInstagram className="h1 p-0 m-0" /> Instagram</li>
+            <li class="list-group-item text-light bg-dark"><AiOutlineFacebook className="h1 p-0 m-0" /> Facebook</li>
           </ul>
         </div> 
         <div className="col-5 d-flex justify-content-center">
           <ul class="list-group list-group-flush h5 ">
-            <h3 className="text-center">Menu </h3>
-            <li class="list-group-item "> <NavLink to={"/Peliculas"} className="nav-link">
+            <h3 className="text-center text-light bg-dark">Menu </h3>
+            <li class="list-group-item text-light bg-dark"> <NavLink to={"/Peliculas"} className="nav-link">
                 Peliculas
               </NavLink></li>
-            <li class="list-group-item "> <NavLink to={"/Series"} className="nav-link">
+            <li class="list-group-item text-light bg-dark"> <NavLink to={"/Series"} className="nav-link">
                 Series
               </NavLink></li>
-            <li class="list-group-item "> <NavLink to={"/MiLista"} className="nav-link">
+            <li class="list-group-item text-light bg-dark"> <NavLink to={"/MiLista"} className="nav-link">
                   MiLista
                 </NavLink></li>
-            <li class="list-group-item "> <NavLink to={"/"} className="nav-link">
+            <li class="list-group-item text-light bg-dark"> <NavLink to={"/"} className="nav-link">
                 Home
               </NavLink></li>
-            <li class="list-group-item "> <NavLink to={"/Login"} className="nav-link">
+            <li class="list-group-item text-light bg-dark"> <NavLink to={"/Login"} className="nav-link">
             Iniciar sesión
                 </NavLink></li>
           </ul>

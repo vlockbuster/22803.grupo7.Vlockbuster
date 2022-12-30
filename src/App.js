@@ -52,7 +52,7 @@ const App = () => {
         <Route path='/detalleTv/:id' element={<DetalleTV/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
-      <footer>
+      <footer className='bg-dark'>
           <Footer/>
       </footer>
       </div>
