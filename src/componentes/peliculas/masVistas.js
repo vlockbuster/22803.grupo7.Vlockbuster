@@ -39,7 +39,6 @@ function MasVistas() {
 
   return (
     <>
-     <Carrusel lista={pelis} />
       <div className="bg-dark p-1">
         <br />
         <h3 className="text-center text-light">Mas Populares</h3>

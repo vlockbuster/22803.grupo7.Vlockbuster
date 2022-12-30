@@ -1,10 +1,63 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
+import React, { useEffect,useState } from "react";
+import Carrusel from "../componentes/Carrusel";
 import Carrusel1 from "../componentes/Carrusel1";
 import Carrusel2 from "../componentes/Carrusel2";
 import Discovery from "../componentes/Discovery";
 import SearchResults from "../componentes/SearchResults";
 
+const key = "e4e0f9c7c990f3921d36b5095affbe99";
+
 const Home = () => {
+  const [carru1, setCarru1] = useState([]);
+
+  useEffect(() => {
+    // fetch de api mas vistas
+    const datos = async () => {
+      let genero1 = [12,16,28,35,878,27];
+      let rand = Math.floor(Math.random() * genero1.length);
+      let rValue = genero1[rand];
+      console.log("valor random", rValue);
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=es-ES&page=1&with_genres=${rValue}`
+      );
+      const data = await response.json();
+      console.log("random", data);
+      setCarru1(data.results)
+      console.log(carru1)
+      // setPelis((pelisActuales) => [...pelisActuales, ...data.results]);
+      // console.log(data);
+    };
+    datos();
+  }, []);
+
+  function categoria(numero) {
+    let genero =''
+switch (key) {
+    case 12:
+      genero = "aventura"
+      break;
+      case 16:
+      genero = "animacion"
+      break;
+      case 28:
+      genero = "accion"
+      break;
+      case 35:
+      genero = "comedia"
+      break;
+      case 878:
+      genero = "ciencia ficcion"
+      break;
+      case 27:
+      genero = "terror"
+      break;
+    default:
+      genero ='de todo un poco'
+      break;
+  }}
+
+
   /* lista es solo una simulacion de la peticion a la api */
   const lista = [
     {
@@ -668,9 +721,10 @@ const Home = () => {
       <div>
         <div className="bg-dark p-1 mt-0 text ali">
           <h2 className="text-white text-center m-0 p-0">
-            Las Mejores Peliculas
+            Generos Random
           </h2>
         </div>
+        <Carrusel lista={carru1}/>
         <Carrusel1 lista={drama} />
         <div className="bg-dark p-1 mt-0 text ali">
           <h2 className="text-white text-center m-0 p-0">Las Mejores Series</h2>
