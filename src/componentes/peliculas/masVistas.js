@@ -6,7 +6,6 @@ import BtVer from './btVer'
 import BtEliminar from './btEliminarDeLista'
 import { ListaContext } from "./contextLista";
 
-import Carrusel from "../Carrusel";
 
 function MasVistas() {
   const [pelis, setPelis] = useState([]);
@@ -38,7 +37,6 @@ function MasVistas() {
 
   return (
     <>
-     <Carrusel lista={pelis} />
       <div className="bg-dark p-1">
         <br />
         <h3 className="text-center text-light">Mas Populares</h3>
@@ -55,7 +53,7 @@ function MasVistas() {
               </Link>
               {/* aca esta la logica de botones si esta logueado ve uno u otro boton */}
               {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} />}
-              <BtVer id={item.id} />
+              <BtVer id={item.id} contenido="serie" />
             </div>
           ))}
         </div>
