@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom"
+import PeliculaDetalle from "../componentes/peliculas/PeliculaDetalle"
 
 
 const DetalleId = () => {
@@ -6,7 +7,7 @@ const DetalleId = () => {
     const param  = useParams();
     return (
     <div>
-        <h1>Detalles pagina {param.id}</h1>
+        <PeliculaDetalle/>
     </div>
   )
 }
