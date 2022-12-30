@@ -69,7 +69,7 @@ function BtVer(id) {
 
     return (
         <>
-            <button type="button" onClick={video}>
+            <button type="button" onClick={video} className="btn btn-info ">
                 Ver
             </button>
         </>
