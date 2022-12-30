@@ -26,7 +26,7 @@ function User() {
   const desloguear = async () => {
     try {
       await signOut(auth).then(() => {
-        // setLista([])
+        setLista([])
         navigate('/')
       });
     } catch (error) {

@@ -6,6 +6,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import BtEliminar from "./btEliminarDeLista";
 import { ListaContext } from "./contextLista";
 import { Link } from 'react-router-dom'
+import BtVer from './btVer'
 
 
 function MiLista() {
@@ -59,6 +60,7 @@ function MiLista() {
             />
             </Link>
             <BtEliminar id={item.id} />
+            <BtVer id={item.id} contenido={item.contenido} />
           </div>
         ))}
       </div>

@@ -15,17 +15,19 @@ function BtAgregarLista(data) {
   const agregarLista = async () => {
     let id = data.id;
     let poster_path = data.poster_path;
+    let contenido = data.contenido
     // console.log("lista:", id, poster_path);
     if (auth.currentUser) {
       let uid = auth.currentUser.uid;
-      // console.log(data);
-      // console.log(lista)
+      console.log(data);
+      console.log(lista)
       setLista((actuales) => [...actuales, data])
       const docRef = doc(db, "usuarios", uid);
       await updateDoc(docRef, {
         lista: arrayUnion({
           id,
           poster_path,
+          contenido
         }),
       }).then(Swal.fire({
         icon: 'success',
