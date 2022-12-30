@@ -14,6 +14,7 @@ import LoginPages from './pages/LoginPage'
 import DetalleId from './pages/detalleId';
 import Watch from './pages/watch';
 import DetalleTV from './pages/detalleTV';
+import Footer from './componentes/footer';
 
 const App = () => {
   
@@ -51,10 +52,9 @@ const App = () => {
         <Route path='/detalleTv/:id' element={<DetalleTV/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
-      <br />
-      <br />
-      <br />
-      
+      <footer>
+          <Footer/>
+      </footer>
       </div>
    
   );
