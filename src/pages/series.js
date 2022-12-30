@@ -9,10 +9,12 @@ import Carrusel from "../componentes/Carrusel";
 const peli = Consultas(props);
    return (<>
   {/*  <Carrusel2 lista={peli}/> */}
-   <div className="bg-dark p-1 mt-0 text ali">
+   <div className="bg-dark p-1 mt-0 ">
      <h2 className="text-white text-center">Comedia</h2>
-    </div>
+    <div className="d-flex justify-content-center">
     <Carrusel lista={peli}/>
+    </div>
+    </div>
    {/*  <Carrusel1 lista={peli}/> */}
      <VerSeries/>
    </>

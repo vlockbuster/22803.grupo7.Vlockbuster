@@ -27,9 +27,7 @@ const App = () => {
       
     <br /><br /><br /> 
     {/* para usar este link tenes que importar  import { Link} from 'react-router-dom';*/}
-    <Link to={`/detalle/variable`}>ir a detalles</Link>
-    <br/> 
-    <Link to={`/watch/variable`}>ir a ver peli</Link> 
+
       {/* en home esta el ejemplo para usar el carrusel solo se importa y se le manda 
       la peticion de la api con la variable lista */}
       <Routes>

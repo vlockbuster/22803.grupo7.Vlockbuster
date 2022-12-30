@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import BtAgregar from './btAgregarLista'
 import { Link } from 'react-router-dom'
+import BtAgregar from './btAgregarLista'
 import BtVer from './btVer'
 import BtEliminar from './btEliminarDeLista'
 import { ListaContext } from "./contextLista";

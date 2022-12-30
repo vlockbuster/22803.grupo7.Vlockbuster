@@ -9,7 +9,12 @@ import MasVistas from "../componentes/peliculas/masVistas";
 const peli = Consultas(props);
   return (
     <>
+          <div className="bg-dark p-1 mt-0 text ali">
+          <h2 className="text-white text-center">Drama</h2>
+          <div className="d-flex justify-content-center">
     <Carrusel lista={peli}/>
+    </div>
+    </div>
     <MasVistas/>
   
     </>
