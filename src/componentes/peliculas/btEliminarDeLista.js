@@ -57,7 +57,7 @@ function BtEliminarDeLista(data) {
   
   return (
     <>
-      <button type="button" onClick={eliminarDeLista}>
+      <button type="button" onClick={eliminarDeLista} className="btn btn-info">
         - lista
       </button>
     </>

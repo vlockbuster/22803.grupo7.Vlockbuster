@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
+
   const Carrusel2 = (props) => {
-    
-    const arraymapeado = props.lista.results.map((item) => ({ "titulo": item.title, "url": item.poster_path, "id": item.id }));
+    const arraymapeado = props.lista.map((item) => ({ "titulo": item.title, "url": item.poster_path, "id": item.id }));
     const peli = arraymapeado.shift();
 
   return (
@@ -8,11 +9,16 @@
     <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
   <div className="carousel-inner">
         <div className="carousel-item active"> 
+        <Link to={`/detalle/${peli.id}`}>
+
            <img src={`https://image.tmdb.org/t/p/w500${peli.url}`} id={`${peli.id}`}  className="d-block w-100" alt={`${peli.titulo}`}/>
+        </Link>
         </div>
      {arraymapeado.map(peli=>(
         <div className="carousel-item" key={`${peli.id}`}>
+                  <Link to={`/detalle/${peli.id}`}>
            <img src={`https://image.tmdb.org/t/p/w500${peli.url}`} id={`${peli.id}`}  className="d-block w-100" alt={`${peli.titulo}`}/>
+              </Link>
         </div>  
         ))
       }

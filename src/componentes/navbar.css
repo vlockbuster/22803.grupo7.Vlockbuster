@@ -1,0 +1,66 @@
+.navbar {
+    font-family: 'Work Sans', sans-serif;
+    text-align: center;
+    margin: 0;
+    font-size: 1.5rem;
+    color: #f9f9f9;
+    padding: 20px;
+    background-color: #3c3c3c;
+    width: 100%;
+    align-items: center;
+    
+}
+
+.navbar-toggler{
+    border: 5px;
+}
+
+#boton:hover{
+    background-color: #b64444;
+}
+
+#mynavbar {
+    width: 100%;
+}
+
+.container-fluid {
+    background-color: #3c3c3c;
+    
+}
+
+.nav-item {
+    padding: 0.5rem;
+}
+
+
+form {
+    padding: 20px;
+    margin: 0;
+}
+
+input {
+    width: fit-content;
+}
+
+#boton {
+    background-color:  #28408f;
+    border-color:  #28408f;
+    color: #f9f9f9;
+    font-size: 1.5rem;
+}
+
+form {
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+
+
+/*--------------------Media queries-----------------*/
+
+@media (min-width: 575px) {
+     .buscador {
+    width: 45%;
+    font-size: 0.5rem;
+    }
+}
