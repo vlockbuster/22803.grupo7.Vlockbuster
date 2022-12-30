@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import { useConsulta } from "../hooks/useConsulta";
 import { useDebounce } from "../hooks/useDebounce";
 import NoResults from "./NoResults";
-import BtAgregar from "../componentes/peliculas/btAgregarLista";
+import BtAgregar from './peliculas/btAgregarLista'
+import BtVer from './peliculas/btVer'
+import BtEliminar from './peliculas/btEliminarDeLista'
+import { ListaContext } from "./peliculas/contextLista";
 
 function SearchResults() {
   const [pelis, setPelis] = useState([]);
@@ -13,6 +16,11 @@ function SearchResults() {
   //agregado de useLocation para el search
   const query = useConsulta();
   const search = useDebounce(query.get("search"), 500);
+
+// estas 2 lineas son para mas abajo comprobar si existe la peli en la lista
+const [lista] = useContext(ListaContext)
+let existeId = lista.map((item) => (item.id));
+
 
   useEffect(() => {
     //parametro de busqueda
@@ -61,8 +69,8 @@ function SearchResults() {
                 onClick={verDetalle}
                 alt={item.original_title}
               />
-              <BtAgregar id={item.id} poster_path={item.poster_path} />
-            </div>
+{existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} />}
+              <BtVer id={item.id} contenido="serie" />            </div>
           ))}
         </div>
       </div>

@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext} from "react";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import Swal from "sweetalert2";
+import BtAgregar from './peliculas/btAgregarLista'
+import BtVer from './peliculas/btVer'
+import BtEliminar from './peliculas/btEliminarDeLista'
+import { ListaContext } from "./peliculas/contextLista";
+
 
 function Discovery() {
   const [pelis, setPelis] = useState([]);
@@ -9,6 +14,9 @@ function Discovery() {
   const key = "e4e0f9c7c990f3921d36b5095affbe99";
   // const key = process.env.REACT_APP_KEY_TMDB
   //agregado de useLocation para el search
+  const [lista] = useContext(ListaContext)
+  let existeId = lista.map((item) => (item.id));
+
 
   useEffect(() => {
     //parametro de busqueda
@@ -71,14 +79,8 @@ function Discovery() {
                 onClick={verDetalle}
                 alt={item.original_title}
               />
-              <button
-                className="m-2 p-1 btn btn-success btn-badge"
-                type="button"
-                onClick={agregarLista}
-                data-id={item.id}
-                data-poster_path={item.poster_path}>
-                + lista
-              </button>
+             {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} />}
+              <BtVer id={item.id} contenido="serie" />
             </div>
           ))}
         </div>

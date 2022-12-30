@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 const Carrusel1 = (props) => {
 
@@ -20,7 +21,10 @@ const Carrusel1 = (props) => {
                     
               <div className="carousel-inner">
               <div className="carousel-item active"> 
+              <Link to={`/detalle/${peli.id}`}>
+
                 <img src={`https://image.tmdb.org/t/p/w500${peli.url}`} id={`${peli.id}`}  className="d-block w-100" alt={`${peli.titulo}`}/>
+              </Link>
                 <div className="carousel-caption text-white">
                               <h2 editable="inline"><strong>{`${peli.titulo}`}</strong></h2>
                               <p editable="inline">{`${peli.resumen}`}</p>
@@ -29,7 +33,10 @@ const Carrusel1 = (props) => {
                 
               {arraymapeado.map(peli=>(
 <div className="carousel-item" key={`${peli.id}`}>
+<Link to={`/detalle/${peli.id}`}>
+  
   <img src={`https://image.tmdb.org/t/p/w500${peli.url}`} id={`${peli.id}`}  className="d-block w-100" alt={`${peli.titulo}`}/>
+</Link>
                 <div className="carousel-caption text-white">
                               <h2 editable="inline"><strong>{`${peli.titulo}`}</strong></h2>
                               <p editable="inline">{`${peli.resumen}`}</p>
