@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserProvider";
 import { Search } from "./Search";
 
+import './navbar.css'
+
 const NavBar = () => {
   const { authUser } = useContext(UserContext);
 
