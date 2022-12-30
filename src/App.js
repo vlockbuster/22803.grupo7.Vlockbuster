@@ -12,6 +12,7 @@ import NotFound from './pages/notFound';
 import MiListaPage from './pages/miLista';
 import LoginPages from './pages/LoginPage'
 import DetalleId from './pages/detalleId';
+import Watch from './pages/watch';
 
 const App = () => {
   
@@ -26,7 +27,9 @@ const App = () => {
       
     <br /><br /><br /> 
     {/* para usar este link tenes que importar  import { Link} from 'react-router-dom';*/}
-    <Link to={`/detalle/variable`}>ir a detalles</Link> 
+    <Link to={`/detalle/variable`}>ir a detalles</Link>
+    <br/> 
+    <Link to={`/watch/variable`}>ir a ver peli</Link> 
       {/* en home esta el ejemplo para usar el carrusel solo se importa y se le manda 
       la peticion de la api con la variable lista */}
       <Routes>
@@ -45,6 +48,7 @@ const App = () => {
         <Route path='/series' element={<Series/>}/>
         <Route path='/Login' element={<LoginPages/>}/>
         <Route path='/detalle/:id' element={<DetalleId/>}/>
+        <Route path='/watch/:id' element={<Watch/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
       <br />

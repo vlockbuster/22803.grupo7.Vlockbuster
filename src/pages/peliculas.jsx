@@ -1,14 +1,17 @@
-import { useContext } from "react";
-import {UserContext} from "../context/UserProvider"
+import Carrusel from "../componentes/Carrusel";
+import {Consultas} from "../componentes/peliculas/consulta";
+import MasVistas from "../componentes/peliculas/masVistas";
 
  const Peliculas = () => {
- const {authUser} = useContext(UserContext)
-
+  const props = { 
+    tipo: "movie",
+    genero:"drama"}
+const peli = Consultas(props);
   return (
     <>
-    <div>peliculas</div>
-    <h2>{authUser ? 'en linea' : 'offline'}
-    </h2>
+    <Carrusel lista={peli}/>
+    <MasVistas/>
+  
     </>
   )
 }
