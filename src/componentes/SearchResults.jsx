@@ -25,8 +25,8 @@ function SearchResults() {
         `https://api.themoviedb.org/3${searchUrl}api_key=${key}&language=es-ES&page=${pagina}`
       );
       const data = await response.json();
-      console.log(data);
-      setPelis(data.results);
+/*       console.log(data);
+ */      setPelis(data.results);
 
       // console.log(data);
     };

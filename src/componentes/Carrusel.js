@@ -1,8 +1,8 @@
 
 							
 const Carrusel = (props) => {
-  
-	const arraymapeado = props.lista.results.map((item) => ({ "titulo": item.title, "url": item.poster_path, "id": item.id }));
+	/* anda */
+	const arraymapeado = props.lista.map((item) => ({ "titulo": item.title, "url": item.poster_path, "id": item.id }));
 	const corte1 = arraymapeado.splice(6)		
 	const corte2 = corte1.splice(6)		
 	const corte3 = corte2.splice(6)				
