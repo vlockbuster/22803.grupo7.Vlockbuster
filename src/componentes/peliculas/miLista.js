@@ -45,7 +45,7 @@ function MiLista() {
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
         {lista.map((item) => (
           <div key={item.id} className="card bg-secondary my-2">
-            <p>{item.email}</p>
+            <p>{item.id}</p>
             <img
               className="card-img-top"
               src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
