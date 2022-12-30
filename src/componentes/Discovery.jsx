@@ -29,7 +29,7 @@ function Discovery() {
       );
       const data = await response.json();
       console.log(data);
-      setPelis(data.results);
+      setPelis(data.results.slice(0,18));
       // console.log(data);
     };
     datos(pagina);
@@ -50,12 +50,12 @@ function Discovery() {
       <div className="bg-dark p-1">
         <br />
         <h3 className="text-center text-light pt-1">Descubre</h3>
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 p-1">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-3 p-1">
           {pelis.map((item, index) => (
             <div key={index} className="card bg-secondary p-1">
                <Link to={`/detalle/${item.id}`}>
               <img
-                className="card-img-top p-1"
+                className="card-img-top p-1 img-fluid"
                 // src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                 src={item.poster_path == undefined
                   ? `./popcorn.png`
@@ -72,7 +72,7 @@ function Discovery() {
         </div>
       </div>
       <div className="d-flex justify-content-center">
-
+{/* 
       <button
         className="m-2 p-1 btn btn-warning btn-badge"
         type="button"
@@ -80,6 +80,7 @@ function Discovery() {
         disabled={pagina > 15 ? true : false}>
         Ver más
       </button>
+      */}
           </div>
     </>
   );

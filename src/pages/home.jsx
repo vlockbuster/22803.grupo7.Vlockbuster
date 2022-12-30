@@ -725,11 +725,12 @@ switch (key) {
           </h2>
         </div>
         <Carrusel lista={carru1}/>
-        <Carrusel1 lista={drama} />
+       {/* <Carrusel1 lista={drama} />
         <div className="bg-dark p-1 mt-0 text ali">
           <h2 className="text-white text-center m-0 p-0">Las Mejores Series</h2>
         </div>
         <Carrusel2 lista={lista} />
+  */}
       </div>
       <Discovery />
     </>

@@ -62,7 +62,7 @@ function BtEliminarDeLista(data) {
   
   return (
     <>
-      <button type="button" onClick={eliminarDeLista} className="btn btn-danger">
+      <button type="button" onClick={eliminarDeLista} className="btn btn-danger my-1">
         - lista
       </button>
     </>

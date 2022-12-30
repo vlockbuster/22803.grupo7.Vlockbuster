@@ -89,10 +89,12 @@ function CrearUser() {
           required
         />
         <button  id="boton-registro" className="m-2 p-1 btn btn-success" type="submit">Registrar Usuario</button>
+        <br/>
+        <button  id="boton-recuperar" className="m-2 p-1 btn btn-success" onClick={reset}> Olvidé mi password</button>
       </form>
-      <p className="m-2 p-1" onClick={reset}>
-        Olvidé mi password
-      </p>
+
+     
+       
     </div>
   );
 }

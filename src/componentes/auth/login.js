@@ -92,7 +92,7 @@ function Login() {
   return (
     <div className="container-login">
       <p className="m-2 p-1">login</p>
-      <form onSubmit={loginEmail} >
+      <form onSubmit={loginEmail} style={{backgroundColor:'#4d4c4c'}} >
         <label htmlFor="email"></label>
         <input className="m-2 p-1"
           type="text"
@@ -111,6 +111,7 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+        <br/>
         <button  id="boton-login" className="m-2 p-1 btn btn-dark" type="submit">Login</button>
       
       </form>

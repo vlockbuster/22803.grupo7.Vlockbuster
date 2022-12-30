@@ -6,16 +6,25 @@ import { auth } from "../firebase";
 const LoginPages = () => {
   return (
 
-    <div style={ {backgroundColor:"#4d4c4c"}} >
+    <div className="row" style={{backgroundColor:'#4d4c4c'}}>
+
       
+      
+
+
       {auth.currentUser
         ? <User />
-        :<> <Login />
-        <CrearUser /> 
-        <br />    
+        : <>
+        <div className="col-md-6">
+          <Login />
+        </div>
+        
+        <div className="col-md-6">
+          <CrearUser /> 
+        </div>
+            
         </>}
         
-      <br />
     </div>
   )
 }

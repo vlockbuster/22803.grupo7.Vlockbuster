@@ -41,8 +41,8 @@ let existeId = lista.map((item) => (item.id));
     <>
       <div className="bg-dark p-1">
         <br />
-        <h3 className="text-center text-light">Mejor Drama</h3>
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 p-1">
+        <h3 className="text-center text-light">Series</h3>
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-3 p-1">
           {pelis.map((item, index) => (
             <div key={index} className="card bg-secondary p-1">
               <Link to={`/detalleTV/${item.id}`}>

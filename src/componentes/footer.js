@@ -8,14 +8,14 @@ import React from 'react'
 const Footer = () => {
   return (
 <>
-    <div className="row"> 
+    <div className="row pt-5"> 
         <NavLink to={"/"}  className="col-2 justify-content-center d-flex align-items-center">
-        <img className="rounded-circle" src="./popcorn.png" width={100}   alt="logo" />
+        <img className="" src="./popcorn.png" width={100}   alt="logo" />
         </NavLink>
         <div className="col-5 d-flex justify-content-center ">
           <ul class="list-group list-group-flush h5  ">
             <h3 className="text-center text-light bg-dark">Redes </h3>
-            <li class="list-group-item text-light bg-dark"><AiOutlineGithub className="h1 p-0 m-0" /> Repositorio</li>
+            <li class="list-group-item text-light bg-dark"><AiOutlineGithub className="h1 p-0 m-0 link-light" /><a href="https://github.com/vlockbuster/22803.grupo7.Vlockbuster" target="_blank" style={{textDecoration:'none', color:'white'}} > Repositorio</a></li>
             <li class="list-group-item text-light bg-dark"><AiOutlineLinkedin className="h1 p-0 m-0"/> Linkedin</li>
             <li class="list-group-item text-light bg-dark"><AiOutlineInstagram className="h1 p-0 m-0" /> Instagram</li>
             <li class="list-group-item text-light bg-dark"><AiOutlineFacebook className="h1 p-0 m-0" /> Facebook</li>

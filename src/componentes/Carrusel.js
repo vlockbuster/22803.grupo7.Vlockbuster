@@ -11,7 +11,7 @@ const Carrusel = (props) => {
 	return (
 		<>
 
-			<div className="container m-0 p-0 ">
+			<div className="container-fluid m-0 p-0 ">
 				<div className="row">
 					<div className="col-md-12">
 						<div className="lc-block">
