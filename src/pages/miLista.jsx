@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import MiLista from "../componentes/peliculas/miLista";
 import { UserContext } from "../context/UserProvider";
 /* para usar la variable de estado hay que importar las 2 de arriba e 
