@@ -53,7 +53,7 @@ function BtAgregarLista(data) {
 
   return (
     <>
-      <button type="button" onClick={agregarLista}>
+      <button type="button" onClick={agregarLista} className="btn btn-success">
         + lista
       </button>
     </>

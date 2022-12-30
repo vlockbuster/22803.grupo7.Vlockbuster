@@ -1,4 +1,3 @@
-import * as bootstrap from 'bootstrap'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -8,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter} from 'react-router-dom';
 import UserProvider from './context/UserProvider';
 import ListaContextProvider from "./componentes/peliculas/contextLista";
+import * as bootstrap from 'bootstrap'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

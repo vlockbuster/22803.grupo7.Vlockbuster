@@ -1,3 +1,4 @@
+import "../crearUser.css"
 import React, { useRef } from "react";
 import {
   createUserWithEmailAndPassword,
@@ -66,7 +67,7 @@ function CrearUser() {
   };
 
   return (
-    <div >
+    <div className="container-crear-user">
       <p className="m-2 p-1">
       Registrar Usuario
       </p>
@@ -80,14 +81,14 @@ function CrearUser() {
           required
         />
         <label htmlFor="password"></label>
-        <input className="m-2 p-1"
+        <input className="m-4 p-1"
           type="password"
           placeholder="Ingrese password"
           autoComplete="current-password"
           ref={passwordRef}
           required
         />
-        <button  className="m-2 p-1 btn btn-success" type="submit">Registrar Usuario</button>
+        <button  id="boton-registro" className="m-2 p-1 btn btn-success" type="submit">Registrar Usuario</button>
       </form>
       <p className="m-2 p-1" onClick={reset}>
         Olvidé mi password

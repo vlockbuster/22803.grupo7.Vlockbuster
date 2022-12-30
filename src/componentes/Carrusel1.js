@@ -27,8 +27,8 @@ const Carrusel1 = (props) => {
               </Link>
                 <div className="carousel-caption text-white">
                               <h2 editable="inline"><strong>{`${peli.titulo}`}</strong></h2>
-                              <p editable="inline">{`${peli.resumen}`}</p>
-                            </div>
+{/*                               <p editable="inline">{`${peli.resumen}`}</p>
+ */}                            </div>
               </div>
                 
               {arraymapeado.map(peli=>(
@@ -39,8 +39,8 @@ const Carrusel1 = (props) => {
 </Link>
                 <div className="carousel-caption text-white">
                               <h2 editable="inline"><strong>{`${peli.titulo}`}</strong></h2>
-                              <p editable="inline">{`${peli.resumen}`}</p>
-                            </div>
+{/*                               <p editable="inline">{`${peli.resumen}`}</p>
+ */}                            </div>
               </div>  
 ))
 } 

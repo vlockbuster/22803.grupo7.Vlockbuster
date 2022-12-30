@@ -71,6 +71,8 @@ function Discovery() {
           ))}
         </div>
       </div>
+      <div className="d-flex justify-content-center">
+
       <button
         className="m-2 p-1 btn btn-warning btn-badge"
         type="button"
@@ -78,6 +80,7 @@ function Discovery() {
         disabled={pagina > 15 ? true : false}>
         Ver más
       </button>
+          </div>
     </>
   );
 }
