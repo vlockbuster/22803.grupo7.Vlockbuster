@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { auth, db } from "../../firebase";
 import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom';
+import { ListaContext } from './contextLista'
 
 // para que funciones siempre tiene que recibir los parametros id y poster_path
 
 function BtAgregarLista(data) {
   const navigate = useNavigate();
+  const [lista, setLista] = useContext(ListaContext);
+
   // agregar a lista en firebase
   const agregarLista = async () => {
     let id = data.id;
@@ -15,7 +18,9 @@ function BtAgregarLista(data) {
     // console.log("lista:", id, poster_path);
     if (auth.currentUser) {
       let uid = auth.currentUser.uid;
-      console.log(uid);
+      // console.log(data);
+      // console.log(lista)
+      setLista((actuales) => [...actuales, data])
       const docRef = doc(db, "usuarios", uid);
       await updateDoc(docRef, {
         lista: arrayUnion({

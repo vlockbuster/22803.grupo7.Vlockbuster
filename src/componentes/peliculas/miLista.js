@@ -5,6 +5,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import BtEliminar from "./btEliminarDeLista";
 import { ListaContext } from "./contextLista";
+import { Link } from 'react-router-dom'
 
 
 function MiLista() {
@@ -45,13 +46,14 @@ function MiLista() {
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
         {lista.map((item) => (
           <div key={item.id} className="card bg-secondary my-2">
-            <p>{item.id}</p>
+            <Link to={`/detalle/${item.id}`}>
             <img
               className="card-img-top"
               src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
               data-id={item.id}
               alt={item.original_title}
             />
+            </Link>
             <BtEliminar id={item.id} />
           </div>
         ))}
