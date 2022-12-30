@@ -1,13 +1,23 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect , useContext} from "react";
 import BtAgregar from './btAgregarLista'
 import { Link } from 'react-router-dom'
+import BtVer from './btVer'
+import BtEliminar from './btEliminarDeLista'
+import { ListaContext } from "./contextLista";
+
+
 
 function VerSeries() {
   const [pelis, setPelis] = useState([]);
   const [pagina, setPagina] = useState(1);
   const key = "e4e0f9c7c990f3921d36b5095affbe99"
   // const key = process.env.REACT_APP_KEY_TMDB
+
+// estas 2 lineas son para mas abajo comprobar si existe la peli en la lista
+const [lista] = useContext(ListaContext)
+let existeId = lista.map((item) => (item.id));
+
 
   useEffect(() => {
     // fetch de api mas vistas
@@ -43,7 +53,8 @@ function VerSeries() {
                 alt={item.original_title}
               />
               </Link>
-              <BtAgregar id={item.id} poster_path={item.poster_path} />
+              {existeId.includes(item.id) ? <BtEliminar id={item.id} /> : <BtAgregar id={item.id} poster_path={item.poster_path} />}
+              <BtVer id={item.id} contenido="serie" />
             </div>
           ))}
         </div>
