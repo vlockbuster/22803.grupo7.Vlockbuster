@@ -1,0 +1,36 @@
+.container-mas-vistas{
+    text-align: center;
+    margin: 0;
+    font-size: 2rem;
+    color: #f9f9f9;
+    padding: 0;
+    background-color: #212529;
+    width: 100%;
+    border-radius: 5px;
+}
+
+h3{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4rem;  
+    
+}
+
+.row{
+    display: flex;
+    background-color: #212529; /*SE CAMBIA TAMBIEN EN LA SECCION MI LISTA -POR QUE?-*/
+    margin: 0;
+    padding: 0;
+
+}
+
+
+/*button{ MODIFICA TOGGLE SANGUCHITO (?????)
+    background-color: #b81b1b;
+    border-color: #b81b1b;
+    color: #f9f9f9;
+    font-size: 1rem;
+}
+
+button:hover{
+    background-color: #b64444;
+}*/

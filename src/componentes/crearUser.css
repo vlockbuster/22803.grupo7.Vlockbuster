@@ -1,0 +1,42 @@
+.container-crear-user{
+    font-family: 'Work Sans', sans-serif;
+    text-align: center;
+    margin: auto;
+    font-size: 1.5rem;
+    color: #f9f9f9;
+    padding: 0.5rem;
+    background-color: #4d4c4c;
+    width: auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+
+#boton-registro { 
+    background-color: #28408f;
+    border-color: #28408f;
+    color: #f9f9f9;
+    font-size: 1rem;
+}
+
+#boton-registro:hover{
+    background-color: #4157a2;
+}
+
+
+/*--------------------Media queries-----------------*/
+
+@media (min-width: 420px) {
+    .container-crear-user{
+        width: 500px;
+    }
+
+}
+
+@media (max-width: 419px) {
+    .container-crear-user{
+        width: 100%;
+    }
+}
