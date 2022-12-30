@@ -6,7 +6,7 @@ import { auth } from "../firebase";
 const LoginPages = () => {
   return (
 
-    <div className="">
+    <div style={ {backgroundColor:"#4d4c4c"}} >
       
       {auth.currentUser
         ? <User />
