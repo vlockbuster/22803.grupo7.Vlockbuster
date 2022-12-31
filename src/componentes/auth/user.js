@@ -41,7 +41,7 @@ function User() {
     <div className="container-user">
       {authUser ? (
         <>
-          <p className="m-2 p-1">{`logueado ${authUser.email}`}</p>
+          <p className="m-2 p-1">{`logueado ${auth.currentUser.email}`}</p>
           <button className="btn btn-secondary btn-badge m-2 p-1" onClick={desloguear}>Log Out</button>
         </>
       ) : (
