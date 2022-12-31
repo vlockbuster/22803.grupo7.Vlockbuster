@@ -1,3 +1,4 @@
+import "../login.css"
 import React, { useState } from "react";
 import {
   signInWithEmailAndPassword,
@@ -90,9 +91,9 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="container-login">
       <p className="m-2 p-1">login</p>
-      <form onSubmit={loginEmail}>
+      <form onSubmit={loginEmail} style={{backgroundColor:'#4d4c4c'}} >
         <label htmlFor="email"></label>
         <input className="m-2 p-1"
           type="text"
@@ -111,12 +112,16 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button className="m-2 p-1 btn btn-dark" type="submit">Login</button>
+        <br/>
+        <button  id="boton-login" className="m-2 p-1 btn btn-dark" type="submit">Login</button>
+      
       </form>
-      <br />
-      <button className="m-2 p-1 btn btn-warning" type="button" onClick={loginGoogle}>
+      <div>
+      <button id="boton-google" className="m-2 p-1 btn btn-warning" type="button" onClick={loginGoogle}>
+        
         Login Google
       </button>
+      </div>
     </div>
   );
 }

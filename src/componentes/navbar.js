@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserProvider";
 import { Search } from "./Search";
 
+import './navbar.css'
+
 const NavBar = () => {
   const { authUser } = useContext(UserContext);
 
@@ -10,7 +12,7 @@ const NavBar = () => {
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
       <div className="container-fluid">
         <NavLink to={"/"} className="navbar-brand">
-          <img src="./popcorn.png" width={40} alt="logo" />
+          <img className="" src="./popcorn.png" width={40} alt="logo" />
         </NavLink>
         <button
           className="navbar-toggler"
