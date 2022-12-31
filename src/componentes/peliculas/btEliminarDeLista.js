@@ -1,8 +1,8 @@
 import React from "react";
 import { doc, updateDoc } from "firebase/firestore";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { db,auth } from "../../firebase";
-import {ListaContext} from './contextLista'
+// import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { db, auth } from "../../firebase";
+import { ListaContext } from './contextLista'
 import { useContext } from "react";
 import Swal from "sweetalert2";
 
@@ -33,33 +33,34 @@ function BtEliminarDeLista(data) {
     } else {
       Swal.fire("Por favor loguear eliminar")
     }
-    
+
   };
 
   // elimina de DB
-  const eliminarDeDB = () => {
-    const auth = getAuth();
-    console.log("llego a eliminar", lista);
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const uid = user.uid;
-        console.log(uid);
-        const docRef = doc(db, "usuarios", uid);
-        await updateDoc(docRef, {
-          lista: nuevaLista,
-        }).then(Swal.fire({
-          icon: 'success',
-          title: 'Eliminada de la lista',
-          showConfirmButton: false,
-          timer: 1500
-        }));
-      } else {
-        Swal.fire("Por favor loguear eliminar");
-      }
-    });
+  const eliminarDeDB = async () => {
+    // const auth = getAuth();
+    console.log("llego a eliminar", auth.currentUser.uid);
+    // onAuthStateChanged(auth, async (user) => {
+    if (auth.currentUser.uid) {
+      // if (user) {
+      const uid = auth.currentUser.uid;
+      console.log(uid);
+      const docRef = doc(db, "usuarios", uid);
+      await updateDoc(docRef, {
+        lista: nuevaLista,
+      }).then(Swal.fire({
+        icon: 'success',
+        title: 'Eliminada de la lista',
+        showConfirmButton: false,
+        timer: 1500
+      }));
+    } else {
+      Swal.fire("Por favor loguear eliminar");
+    }
   };
 
-  
+
+
   return (
     <>
       <button type="button" onClick={eliminarDeLista} className="btn btn-info">

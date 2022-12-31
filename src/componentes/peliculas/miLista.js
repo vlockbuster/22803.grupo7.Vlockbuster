@@ -25,7 +25,7 @@ function MiLista() {
             let listaok = docu.data().lista;
             if (listaok) {
               setLista(listaok);
-              console.log(listaok.poster_path)
+              // console.log(listaok.poster_path)
             }
           } catch (error) {
             console.log(error);
