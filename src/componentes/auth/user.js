@@ -27,7 +27,7 @@ function User() {
 
   return (
 
-    <div className="container-user>
+    <div className="container-user">
       {auth.currentUser ? (
 
         <>
