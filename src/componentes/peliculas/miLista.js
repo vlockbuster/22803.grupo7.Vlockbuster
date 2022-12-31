@@ -45,7 +45,7 @@ function MiLista() {
   return (
     <div className=" bg-dark">
       <h3 className="text-light text-center p-3">Mi lista</h3>
-      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-3">
         {lista.map((item) => (
           <div key={item.id} className="card bg-secondary my-2">
             <Link to={`/detalle/${item.id}`}>

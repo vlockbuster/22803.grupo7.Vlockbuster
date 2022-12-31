@@ -1,11 +1,10 @@
-import { useParams } from "react-router-dom"
-import PeliculaDetalle from "../componentes/peliculas/PeliculaDetalle"
+import SerieDetalle from "../componentes/peliculas/SerieDetalle"
 
 const DetalleTV = () => {
   
     return (
     <div>
-        <PeliculaDetalle/>
+        <SerieDetalle/>
     </div>
   )
 }

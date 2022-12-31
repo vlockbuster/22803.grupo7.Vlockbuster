@@ -1,3 +1,4 @@
+import "../user.css"
 import React, { useState, useEffect, useContext } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../firebase";
@@ -37,8 +38,10 @@ function User() {
   };
 
   return (
-    <div>
+
+    <div className="container-user>
       {auth.currentUser ? (
+
         <>
           <p className="m-2 p-1">{`logueado ${auth.currentUser.email}`}</p>
           <button className="btn btn-secondary btn-badge m-2 p-1" onClick={desloguear}>Log Out</button>
