@@ -16,6 +16,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  console.log("currente",auth.currentUser)
   // login con usuario en firebase
   const loginEmail = async (e) => {
     e.preventDefault();

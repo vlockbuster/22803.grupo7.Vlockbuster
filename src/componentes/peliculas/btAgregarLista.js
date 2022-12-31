@@ -19,8 +19,8 @@ function BtAgregarLista(data) {
     // console.log("lista:", id, poster_path);
     if (auth.currentUser) {
       let uid = auth.currentUser.uid;
-      console.log(data);
-      console.log(lista)
+      // console.log(data);
+      // console.log(lista)
       setLista((actuales) => [...actuales, data])
       const docRef = doc(db, "usuarios", uid);
       await updateDoc(docRef, {
